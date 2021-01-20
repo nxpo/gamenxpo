@@ -29,6 +29,9 @@ Vue.component('test1-component', require('./components/test1.vue').default);
 Vue.component('test2-component', require('./components/test2.vue').default);
 Vue.component('test3-component', require('./components/test3.vue').default);
 
+Vue.component('book-component', require('../book/book.vue').default);
+
+
 Vue.component('flipbook', require('flipbook-vue').default);
 
 Vue.use(flipbook);
