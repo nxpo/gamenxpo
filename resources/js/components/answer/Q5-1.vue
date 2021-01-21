@@ -1,11 +1,12 @@
 <template>
-<svg width="203" height="224" viewBox="0 0 203 224" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M52.4 0.200195V0L0 29.1001V91.4502L52.6 120.35L105.45 91.1001V29.3999L52.6 0.149902L52.4 0.200195Z" fill="url(#paint0_linear)"/>
-<path d="M53.5356 31.5801H49.6726V30.8501H51.1976V23.1001L49.6726 24.4199L49.2246 23.9102L51.5636 21.8599C51.8616 21.8599 52.0106 22.1199 52.0106 22.6299V30.8501H53.5356V31.5801Z" fill="white"/>
-<path d="M40.836 88.75L30.264 88.77L30.251 45.29H40.797L40.836 88.75Z" fill="#F7941F" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M51.836 88.75L41.264 88.77L41.251 45.29H51.797L51.836 88.75Z" fill="#F7941F" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M52.2646 67.2998H73.7636V77.7598H52.2646V67.2998Z" fill="#F7941F" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M52.2646 78.3198H73.7636V88.7798H52.2646V78.3198Z" fill="#F7941F" stroke="#4A1200" stroke-width="0.5"/>
+<svg width="233" height="234" viewBox="-10 -8 233 234" fill="none" xmlns="http://www.w3.org/2000/svg" @mouseover="active = true" @mouseleave="active = false">
+<path v-show="active" d="M100.874 0.37227V0L0 54.162V170.21L101.259 224L203 169.559V54.7205L101.259 0.279231L100.874 0.37227Z" fill="url(#paint0_linear)" style="fill:lime;stroke:white;stroke-width:5;fill-rule:evenodd;"/>
+<path d="M99.3836 0.369284V0L0 53.6786V168.691L99.7629 222L200 168.045V54.2316L99.7629 0.276513L99.3836 0.369284Z" fill="url(#paint0_linear)"/>
+<path d="M101 57H92.9353V55.6482H96.119V41.2967L92.9353 43.7407L92 42.7968L96.8831 39C97.5052 39 97.8162 39.4815 97.8162 40.4259V55.6482H101V57Z" fill="white"/>
+<path d="M76 163.962L56.0246 164L56 82H75.9263L76 163.962Z" fill="#F7941F" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M98 163.962L78.0246 164L78 82H97.9263L98 163.962Z" fill="#F7941F" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M98 124H141V143H98V124Z" fill="#F7941F" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M98 144H141V164H98V144Z" fill="#F7941F" stroke="#4A1200" stroke-width="0.5"/>
 <defs>
 <linearGradient id="paint0_linear" x1="49.413" y1="46.2" x2="49.488" y2="126.3" gradientUnits="userSpaceOnUse">
 <stop stop-color="#3F88DE"/>

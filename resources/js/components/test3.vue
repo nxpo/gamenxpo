@@ -67,8 +67,8 @@
             <div @click.stop="onClick">
                 <img
                     class="img"
-                    src="//placekitten.com/100/100"
-                    width="100"
+                    src="images\water.png"
+                    width="2000"
                     alt="kitty"
                     :style="{ top: imgTop }"
                 />

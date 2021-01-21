@@ -14,7 +14,7 @@
 
 .bg {
   /* The image used */
-  background-image: url("images/bg.png");
+  background-image: url("images/bggame3.png");
 
   /* Full height */
   height: 100%; 

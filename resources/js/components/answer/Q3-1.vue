@@ -1,13 +1,14 @@
 <template>
-<svg width="203" height="224" viewBox="0 0 203 224" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M52.4 0.199951V0L0 29.1001V91.45L52.6 120.35L105.45 91.1001V29.3999L52.6 0.149902L52.4 0.199951Z" fill="url(#paint0_linear)"/>
-<path d="M54.5361 22.5801H50.6731V21.8501H52.1981V14.1001L50.6731 15.4199L50.2251 14.9099L52.5641 12.8601C52.8621 12.8601 53.0111 13.1199 53.0111 13.6299V21.8501H54.5361V22.5801Z" fill="white"/>
-<path d="M27.2651 58.21H48.7641L48.7651 68.79L27.2651 68.78V58.21Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M49.2651 58.21H70.7641L70.7651 68.79L49.2651 68.78V58.21Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M70.8162 36.26V57.76H60.2422L60.2452 36.26H70.8162Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M27.2651 69.25H48.7641L48.7651 79.8201H27.2651V69.25Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M49.2651 69.25H70.7641L70.7651 79.8201H49.2651V69.25Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M59.784 36.26V57.76H49.21L49.213 36.26H59.784Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
+<svg width="233" height="234" viewBox="-10 -8 233 234" fill="none" xmlns="http://www.w3.org/2000/svg" @mouseover="active = true" @mouseleave="active = false">
+<path v-show="active" d="M100.874 0.37227V0L0 54.162V170.21L101.259 224L203 169.559V54.7205L101.259 0.279231L100.874 0.37227Z" fill="url(#paint0_linear)" style="fill:lime;stroke:white;stroke-width:5;fill-rule:evenodd;"/>
+<path d="M100.874 0.370495V0L0 53.9204V169.45L101.259 223L203 168.802V54.4759L101.259 0.277758L100.874 0.370495Z" fill="url(#paint0_linear)"/>
+<path d="M106 42H97.0392V40.6482H100.577V26.2963L97.0392 28.7404L96 27.7959L101.426 24C102.117 24 102.462 24.4811 102.462 25.4255V40.6482H106V42Z" fill="white"/>
+<path d="M53 108H92.9981L93 128L53 127.981V108Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M94 108H134.998L135 128L94 127.981V108Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M135 68V107H115L115.006 68H135Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M53 128H92.9981L93 148H53V128Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M94 128H134.998L135 148H94V128Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M115 68V107H94L94.006 68H115Z" fill="#FFD80B" stroke="#4A1200" stroke-width="0.5"/>
 <defs>
 <linearGradient id="paint0_linear" x1="49.413" y1="46.2" x2="49.488" y2="126.3" gradientUnits="userSpaceOnUse">
 <stop stop-color="#3F88DE"/>

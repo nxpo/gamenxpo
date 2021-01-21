@@ -1,10 +1,11 @@
 <template>
-<svg width="203" height="224" viewBox="0 0 203 224" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M52.6001 0.150024L52.3999 0.200012V0L0 29.1V91.45L52.6001 120.35L105.45 91.1V29.4L52.6001 0.150024Z" fill="url(#paint0_linear)"/>
-<path d="M55.5405 29.5801H51.6704V28.8481H53.2004V21.1011L51.6704 22.423L51.2305 21.9141L53.5605 19.8611C53.8605 19.8611 54.0105 20.1181 54.0105 20.6331V28.8481H55.5405V29.5801Z" fill="white"/>
-<path d="M75.75 74.8301L32.26 74.8201L32.25 64.3201L75.74 64.259L75.75 74.8301Z" fill="#FF7A00" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M75.75 85.8301L32.26 85.8201L32.25 75.3201L75.74 75.259L75.75 85.8301Z" fill="#FF7A00" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M75.7498 63.7651V42.2661L65.1797 42.2651V63.7651H75.7498Z" fill="#FF7A00" stroke="#4A1200" stroke-width="0.5"/>
+<svg width="233" height="234" viewBox="-10 -8 233 234" fill="none" xmlns="http://www.w3.org/2000/svg" @mouseover="active = true" @mouseleave="active = false">
+<path v-show="active" d="M100.874 0.37227V0L0 54.162V170.21L101.259 224L203 169.559V54.7205L101.259 0.279231L100.874 0.37227Z" fill="url(#paint0_linear)" style="fill:lime;stroke:white;stroke-width:5;fill-rule:evenodd;"/>
+<path d="M99.7632 0.277985L99.3835 0.370608V0L0 53.9202V169.45L99.7632 223L200 168.802V54.4762L99.7632 0.277985Z" fill="url(#paint0_linear)"/>
+<path d="M107 55H98.9187V53.6443H102.114V39.2965L98.9187 41.7448L98 40.8022L102.866 37C103.492 37 103.805 37.4759 103.805 38.4297V53.6443H107V55Z" fill="white"/>
+<path d="M144 138L63.0186 137.982L63 119.11L143.981 119L144 138Z" fill="#FF7A00" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M144 160L63.0186 159.981L63 140.115L143.981 140L144 160Z" fill="#FF7A00" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M144 119V78.0019L124 78V119H144Z" fill="#FF7A00" stroke="#4A1200" stroke-width="0.5"/>
 <defs>
 <linearGradient id="paint0_linear" x1="57.46" y1="41" x2="57.54" y2="121.1" gradientUnits="userSpaceOnUse">
 <stop stop-color="#3F88DE"/>
