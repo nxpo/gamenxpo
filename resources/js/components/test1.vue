@@ -1,172 +1,175 @@
 <template>
-    <div>
-        <div v-if="showScore">You Scored {{ score }}</div>
-        <div class="" v-else>
-            <span v-if="!startQuiz">
-                <div class="bgstart">
-                    <div class="container">
-                        <b-row
-                            class="text-center"
-                            style=";
-  height: 25%;"
-                        >
-                            <b-col
-                                style=";
-  top: 80%;"
-                                class="font-sarabun"
-                                >คำอธิบายแบบทดสอบ</b-col
-                            >
-                        </b-row>
-                        <b-row class="text-center pt-2">
-                            <textarea
-                                id="w3review"
-                                name="w3review"
-                                rows="9"
-                                readonly
-                                cols="120"
-                                style="color: #1E3966;resize: none; border:none;  font-size: 30px;line-height: 50px; "
-                                class="card-body"
-                            >
+  <div>
+    <div v-if="showScore">You Scored {{ score }}</div>
+    <div class="" v-else>
+      <span v-if="!startQuiz">
+        <div class="bgstart">
+          <div class="container">
+            <b-row class="text-center" style="height: 25%">
+              <b-col style="top: 80%" class="font-sarabun"
+                >คำอธิบายแบบทดสอบ</b-col
+              >
+            </b-row>
+            <b-row class="text-center pt-2">
+              <textarea
+                id="w3review"
+                name="w3review"
+                rows="9"
+                readonly
+                cols="120"
+                style="
+                  color: #1e3966;
+                  resize: none;
+                  border: none;
+                  font-size: 30px;
+                  line-height: 50px;
+                "
+                class="card-body"
+              >
  เป็นแบบทดสอบที่ผู้ทดสอบต้องหาด้านที่ซ่อนอยู่ของวัตถุต่างๆตามที่โจทย์กำหนด โดยผู้ทดสอบจะเห็นแท่งสี่เหลี่ยมที่แต่ละแท่งมีขนาดเท่ากันและวางซ้อนกัน ซึ่งผู้ทดสอบจะเห็นด้านหนึ่งและไม่เห็นอีกด้านหนึ่ง รวมทั้งไม่เห็นด้านล่างและด้านบน แต่ผู้ทดสอบต้องใช้จินตนาการว่าด้านที่ไม่เห็นนั้นมีลักษณะเช่นไร
 ซึ่งสี่เหลี่ยมที่ให้มาเปรียบเสมือนข้อมูลที่มี โดยผู้ทดสอบต้องใช้การวิเคราะห์ร่วมกับการจินตนาการ ความคิดสร้างสรรค์ และการวาดภาพในสมอง เพื่อหาสิ่งที่มองไม่เห็น โดยเป็นการทดสอบความคิดสร้างสรรค์แบบมีรูปแบบมากกว่าคิดสร้างสรรค์แบบไร้กรอบ เพราะสี่เหลี่ยมทุกรูปมีความเท่ากัน
   </textarea
-                            >
-                        </b-row>
-                        <b-row class="text-center pt-4">
-                            <b-col>
-                                <a @click="startQuizFunc()">
-                                    <startbtn></startbtn>
-                                </a>
-                            </b-col>
-                        </b-row>
-                    </div>
-                </div>
-            </span>
-
-            <span v-else>
-                <nav
-                    class="navbar navbar-light"
-                    style="background-color: white; height: 85px 
-  box-shadow: 5px 10px 18px #888888;"
-                >
-                    <div class="col-2">
-                        <a class="navbar-brand pl-5" href="#"><Logo /></a>
-                    </div>
-                    <div class="col-10">
-                        <div class="row">
-                            <div
-                                class="col-sm text-center font-kanit"
-                                :key="index"
-                                v-for="(option, index) in questionsRan.length -
-                                    2"
-                            >
-                                <div v-if="index < currentQuestion">
-                                    <div v-bind:style="styleObject">
-                                        {{ index + 1 }}
-                                    </div>
-                                </div>
-
-                                <div v-if="index == currentQuestion">
-                                    <div v-bind:style="styleObject2">
-                                        {{ index + 1 }}
-                                    </div>
-                                </div>
-
-                                <div v-if="index > currentQuestion">
-                                    <div v-bind:style="styleObject3">
-                                        {{ index + 1 }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-
-                <br />
-                <div class="container ">
-                    <div class="row pt-4">
-                        <div class="col text-center">
-                            <component
-                                v-bind:is="
-                                    questionsRan[currentQuestion].component
-                                "
-                            ></component>
-                        </div>
-                        <div class="col text-center">
-                            <div
-                                class="card "
-                                style="width: 35rem;      background: linear-gradient(to bottom, #ffffff 60%, #808080 176%);
-  height: 450px;  box-shadow: 0 0 8px 2px  #808080;"
-                            >
-                                <b-progress class="" height="30px">
-                                    <b-progress-bar
-                                        :style="{
-                                            'background-color': '#f5d020',
-                                            'background-image':
-                                                'linear-gradient(315deg, #f5d020 0%, #f53803 74%)'
-                                        }"
-                                        :max="600"
-                                        :value="countDown"
-                                        >
-                                        <!-- <i class="fa fa-clock"></i> -->
-
-
-                                        {{ minutes }}:{{
-                                            seconds
-                                        }}</b-progress-bar
-                                    >
-                                </b-progress>
-
-                                <div
-                                    class="card-body"
-                                    style="    
- font-size:26px; line-height: 45px;padding: 40px;   text-align: center; color:#4682B4"
-                                >
-                                    จากรูปที่ให้มา อะไร คือ
-                                    สิ่งที่มองเห็นจากด้าน A , B หรือ C
-                                    <br />แม้ว่าตัวเลือกอาจจะถูกหมุนไปก็ตาม
-                                    <p
-                                        class="card-text"
-                                        style=" font-size:31px; line-height: 40px;padding: 40px;  color:red"
-                                    >
-                                        <br />
-                                        {{
-                                            questionsRan[currentQuestion]
-                                                .questionText
-                                        }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <center>
-                    <div
-                        class="d-flex justify-content-around pt-5"
-                        style="width: 65%  "
-                    >
-                        <div
-                            class="pt-5 "
-                            :key="index"
-                            v-for="(option, index) in questionsRan[
-                                currentQuestion
-                            ].answerOptions"
-                        >
-                            <a @click="handleAnswerClick(option.isCorrect)">
-                                <!-- <Ans> </Ans> -->
-                                <component
-                                    v-bind:is="
-                                        questionsRan[currentQuestion]
-                                            .answerOptions[index].answerText
-                                    "
-                                ></component>
-                            </a>
-                        </div>
-                    </div>
-                </center>
-            </span>
+              >
+            </b-row>
+            <b-row class="text-center pt-4">
+              <b-col>
+                <a @click="startQuizFunc()">
+                  <startbtn></startbtn>
+                </a>
+              </b-col>
+            </b-row>
+          </div>
         </div>
+      </span>
+
+      <span v-else>
+        <nav
+          class="navbar navbar-light"
+          style="background-color: white; height: 85px 
+  box-shadow: 5px 10px 18px #888888;"
+        >
+          <div class="col-2">
+            <a class="navbar-brand pl-5" href="#"><Logo /></a>
+          </div>
+          <div class="col-10">
+            <div class="row">
+              <div
+                class="col-sm text-center font-kanit"
+                :key="index"
+                v-for="(option, index) in questionsRan.length - 2"
+              >
+                <div v-if="index < currentQuestion">
+                  <div v-bind:style="styleObject">
+                    {{ index + 1 }}
+                  </div>
+                </div>
+
+                <div v-if="index == currentQuestion">
+                  <div v-bind:style="styleObject2">
+                    {{ index + 1 }}
+                  </div>
+                </div>
+
+                <div v-if="index > currentQuestion">
+                  <div v-bind:style="styleObject3">
+                    {{ index + 1 }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <br />
+        <div class="container">
+          <div class="row pt-4">
+            <div class="col text-center">
+              <component
+                v-bind:is="questionsRan[currentQuestion].component"
+              ></component>
+            </div>
+            <div class="col text-center">
+              <div
+                class="card"
+                style="
+                  width: 35rem;
+                  background: linear-gradient(
+                    to bottom,
+                    #ffffff 60%,
+                    #808080 176%
+                  );
+                  height: 450px;
+                  box-shadow: 0 0 8px 2px #808080;
+                "
+              >
+                <b-progress class="" height="30px">
+                  <b-progress-bar
+                    :style="{
+                      'background-color': '#f5d020',
+                      'background-image':
+                        'linear-gradient(315deg, #f5d020 0%, #f53803 74%)',
+                    }"
+                    :max="600"
+                    :value="countDown"
+                  >
+                    <!-- <i class="fa fa-clock"></i> -->
+
+                    {{ minutes }}:{{ seconds }}</b-progress-bar
+                  >
+                </b-progress>
+
+                <div
+                  class="card-body"
+                  style="
+                    font-size: 26px;
+                    line-height: 45px;
+                    padding: 40px;
+                    text-align: center;
+                    color: #4682b4;
+                  "
+                >
+                  จากรูปที่ให้มา อะไร คือ สิ่งที่มองเห็นจากด้าน A , B หรือ C
+                  <br />แม้ว่าตัวเลือกอาจจะถูกหมุนไปก็ตาม
+                  <p
+                    class="card-text"
+                    style="
+                      font-size: 31px;
+                      line-height: 40px;
+                      padding: 40px;
+                      color: red;
+                    "
+                  >
+                    <br />
+                    {{ questionsRan[currentQuestion].questionText }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <center>
+          <div class="d-flex justify-content-around pt-5" style="width: 65%">
+            <div
+              class="pt-5"
+              :key="index"
+              v-for="(option, index) in questionsRan[currentQuestion]
+                .answerOptions"
+            >
+              <a @click="handleAnswerClick(option.isCorrect)">
+                <!-- <Ans> </Ans> -->
+                <component
+                  v-bind:is="
+                    questionsRan[currentQuestion].answerOptions[index]
+                      .answerText
+                  "
+                ></component>
+              </a>
+            </div>
+          </div>
+        </center>
+      </span>
     </div>
+  </div>
 </template>
 
 <script>
@@ -184,6 +187,16 @@ import Subsection9_11_9 from "./question/Q9-11.vue";
 import Subsection9_11_10 from "./question/Q9-11.vue";
 import Subsection9_11_11 from "./question/Q9-11.vue";
 import Subsection12_14_12 from "./question/Q12-14.vue";
+import Subsection12_14_13 from "./question/Q12-14.vue";
+import Subsection12_14_14 from "./question/Q12-14.vue";
+import Subsection15_17_15 from "./question/Q15-17.vue";
+import Subsection15_17_16 from "./question/Q15-17.vue";
+import Subsection15_17_17 from "./question/Q15-17.vue";
+import Subsection18_19_18 from "./question/Q18-19.vue";
+import Subsection18_19_19 from "./question/Q18-19.vue";
+import Subsection20_22_20 from "./question/Q20-22.vue";
+import Subsection20_22_21 from "./question/Q20-22.vue";
+import Subsection20_22_22 from "./question/Q20-22.vue";
 import startbtn from "./icons/startbtn.vue";
 import startbtnon from "./icons/startbtnon.vue";
 
@@ -247,344 +260,564 @@ import Q12_2 from "./answer/Q12-2.vue";
 import Q12_3 from "./answer/Q12-3.vue";
 import Q12_4 from "./answer/Q12-4.vue";
 import Q12_5 from "./answer/Q12-5.vue";
+import Q13_1 from "./answer/Q13-1.vue";
+import Q13_2 from "./answer/Q13-2.vue";
+import Q13_3 from "./answer/Q13-3.vue";
+import Q13_4 from "./answer/Q13-4.vue";
+import Q13_5 from "./answer/Q13-5.vue";
+import Q14_1 from "./answer/Q14-1.vue";
+import Q14_2 from "./answer/Q14-2.vue";
+import Q14_3 from "./answer/Q14-3.vue";
+import Q14_4 from "./answer/Q14-4.vue";
+import Q14_5 from "./answer/Q14-5.vue";
+import Q15_1 from "./answer/Q15-1.vue";
+import Q15_2 from "./answer/Q15-2.vue";
+import Q15_3 from "./answer/Q15-3.vue";
+import Q15_4 from "./answer/Q15-4.vue";
+import Q15_5 from "./answer/Q15-5.vue";
+import Q16_1 from "./answer/Q16-1.vue";
+import Q16_2 from "./answer/Q16-2.vue";
+import Q16_3 from "./answer/Q16-3.vue";
+import Q16_4 from "./answer/Q16-4.vue";
+import Q16_5 from "./answer/Q16-5.vue";
+import Q17_1 from "./answer/Q17-1.vue";
+import Q17_2 from "./answer/Q17-2.vue";
+import Q17_3 from "./answer/Q17-3.vue";
+import Q17_4 from "./answer/Q17-4.vue";
+import Q17_5 from "./answer/Q17-5.vue";
+import Q18_1 from "./answer/Q18-1.vue";
+import Q18_2 from "./answer/Q18-2.vue";
+import Q18_3 from "./answer/Q18-3.vue";
+import Q18_4 from "./answer/Q18-4.vue";
+import Q18_5 from "./answer/Q18-5.vue";
+import Q19_1 from "./answer/Q19-1.vue";
+import Q19_2 from "./answer/Q19-2.vue";
+import Q19_3 from "./answer/Q19-3.vue";
+import Q19_4 from "./answer/Q19-4.vue";
+import Q19_5 from "./answer/Q19-5.vue";
+import Q20_1 from "./answer/Q20-1.vue";
+import Q20_2 from "./answer/Q20-2.vue";
+import Q20_3 from "./answer/Q20-3.vue";
+import Q20_4 from "./answer/Q20-4.vue";
+import Q20_5 from "./answer/Q20-5.vue";
+import Q21_1 from "./answer/Q21-1.vue";
+import Q21_2 from "./answer/Q21-2.vue";
+import Q21_3 from "./answer/Q21-3.vue";
+import Q21_4 from "./answer/Q21-4.vue";
+import Q21_5 from "./answer/Q21-5.vue";
+import Q22_1 from "./answer/Q22-1.vue";
+import Q22_2 from "./answer/Q22-2.vue";
+import Q22_3 from "./answer/Q22-3.vue";
+import Q22_4 from "./answer/Q22-4.vue";
+import Q22_5 from "./answer/Q22-5.vue";
 
 import Ans from "./icons/Ans.vue";
 import Logo from "./icons/Logo.vue";
 import bgfrist from "./icons/bgfrist.vue";
 export default {
-    components: {
-        IconRestore,
-        Subsection1_3_1: Subsection1_3_1,
-        Subsection1_3_2: Subsection1_3_2,
-        Subsection1_3_3: Subsection1_3_3,
-        Subsection4_6_4: Subsection4_6_4,
-        Subsection4_6_5: Subsection4_6_5,
-        Subsection4_6_6: Subsection4_6_6,
-        Subsection7_8_7: Subsection7_8_7,
-        Subsection7_8_8: Subsection7_8_8,
-        Subsection9_11_9: Subsection9_11_9,
-        Subsection9_11_10: Subsection9_11_10,
-        Subsection9_11_11: Subsection9_11_11,
-        Subsection12_14_12: Subsection12_14_12,
-        Ans: Ans,
-        Logo,
-        shadowbtn,
-        bgfrist,
-        startbtn,
-        startbtnon,
-        Q1_1: Q1_1,
-        Q1_2: Q1_2,
-        Q1_3: Q1_3,
-        Q1_4: Q1_4,
-        Q1_5: Q1_5,
-        Q2_1: Q2_1,
-        Q2_2: Q2_2,
-        Q2_3: Q2_3,
-        Q2_4: Q2_4,
-        Q2_5: Q2_5,
-        Q3_1: Q3_1,
-        Q3_2: Q3_2,
-        Q3_3: Q3_3,
-        Q3_4: Q3_4,
-        Q3_5: Q3_5,
-        Q4_1: Q4_1,
-        Q4_2: Q4_2,
-        Q4_3: Q4_3,
-        Q4_4: Q4_4,
-        Q4_5: Q4_5,
-        Q5_1: Q5_1,
-        Q5_2: Q5_2,
-        Q5_3: Q5_3,
-        Q5_4: Q5_4,
-        Q5_5: Q5_5,
-        Q6_1: Q6_1,
-        Q6_2: Q6_2,
-        Q6_3: Q6_3,
-        Q6_4: Q6_4,
-        Q6_5: Q6_5,
-        Q7_1: Q7_1,
-        Q7_2: Q7_2,
-        Q7_3: Q7_3,
-        Q7_4: Q7_4,
-        Q7_5: Q7_5,
-        Q8_1: Q8_1,
-        Q8_2: Q8_2,
-        Q8_3: Q8_3,
-        Q8_4: Q8_4,
-        Q8_5: Q8_5,
-        Q9_1: Q9_1,
-        Q9_2: Q9_2,
-        Q9_3: Q9_3,
-        Q9_4: Q9_4,
-        Q9_5: Q9_5,
-        Q10_1: Q10_1,
-        Q10_2: Q10_2,
-        Q10_3: Q10_3,
-        Q10_4: Q10_4,
-        Q10_5: Q10_5,
-        Q11_1: Q11_1,
-        Q11_2: Q11_2,
-        Q11_3: Q11_3,
-        Q11_4: Q11_4,
-        Q11_5: Q11_5,
-        Q12_1: Q12_1,
-        Q12_2: Q12_2,
-        Q12_3: Q12_3,
-        Q12_4: Q12_4,
-        Q12_5: Q12_5
-    },
+  components: {
+    IconRestore,
+    Subsection1_3_1: Subsection1_3_1,
+    Subsection1_3_2: Subsection1_3_2,
+    Subsection1_3_3: Subsection1_3_3,
+    Subsection4_6_4: Subsection4_6_4,
+    Subsection4_6_5: Subsection4_6_5,
+    Subsection4_6_6: Subsection4_6_6,
+    Subsection7_8_7: Subsection7_8_7,
+    Subsection7_8_8: Subsection7_8_8,
+    Subsection9_11_9: Subsection9_11_9,
+    Subsection9_11_10: Subsection9_11_10,
+    Subsection9_11_11: Subsection9_11_11,
+    Subsection12_14_12: Subsection12_14_12,
+    Ans: Ans,
+    Logo,
+    shadowbtn,
+    bgfrist,
+    startbtn,
+    startbtnon,
+    Q1_1: Q1_1,
+    Q1_2: Q1_2,
+    Q1_3: Q1_3,
+    Q1_4: Q1_4,
+    Q1_5: Q1_5,
+    Q2_1: Q2_1,
+    Q2_2: Q2_2,
+    Q2_3: Q2_3,
+    Q2_4: Q2_4,
+    Q2_5: Q2_5,
+    Q3_1: Q3_1,
+    Q3_2: Q3_2,
+    Q3_3: Q3_3,
+    Q3_4: Q3_4,
+    Q3_5: Q3_5,
+    Q4_1: Q4_1,
+    Q4_2: Q4_2,
+    Q4_3: Q4_3,
+    Q4_4: Q4_4,
+    Q4_5: Q4_5,
+    Q5_1: Q5_1,
+    Q5_2: Q5_2,
+    Q5_3: Q5_3,
+    Q5_4: Q5_4,
+    Q5_5: Q5_5,
+    Q6_1: Q6_1,
+    Q6_2: Q6_2,
+    Q6_3: Q6_3,
+    Q6_4: Q6_4,
+    Q6_5: Q6_5,
+    Q7_1: Q7_1,
+    Q7_2: Q7_2,
+    Q7_3: Q7_3,
+    Q7_4: Q7_4,
+    Q7_5: Q7_5,
+    Q8_1: Q8_1,
+    Q8_2: Q8_2,
+    Q8_3: Q8_3,
+    Q8_4: Q8_4,
+    Q8_5: Q8_5,
+    Q9_1: Q9_1,
+    Q9_2: Q9_2,
+    Q9_3: Q9_3,
+    Q9_4: Q9_4,
+    Q9_5: Q9_5,
+    Q10_1: Q10_1,
+    Q10_2: Q10_2,
+    Q10_3: Q10_3,
+    Q10_4: Q10_4,
+    Q10_5: Q10_5,
+    Q11_1: Q11_1,
+    Q11_2: Q11_2,
+    Q11_3: Q11_3,
+    Q11_4: Q11_4,
+    Q11_5: Q11_5,
+    Q12_1: Q12_1,
+    Q12_2: Q12_2,
+    Q12_3: Q12_3,
+    Q12_4: Q12_4,
+    Q12_5: Q12_5,
+    Q13_1: Q13_1,
+    Q13_2: Q13_2,
+    Q13_3: Q13_3,
+    Q13_4: Q13_4,
+    Q13_5: Q13_5,
+    Q14_1: Q14_1,
+    Q14_2: Q14_2,
+    Q14_3: Q14_3,
+    Q14_4: Q14_4,
+    Q14_5: Q14_5,
+    Q15_1: Q15_1,
+    Q15_2: Q15_2,
+    Q15_3: Q15_3,
+    Q15_4: Q15_4,
+    Q15_5: Q15_5,
+    Q16_1: Q16_1,
+    Q16_2: Q16_2,
+    Q16_3: Q16_3,
+    Q16_4: Q16_4,
+    Q16_5: Q16_5,
+    Q17_1: Q17_1,
+    Q17_2: Q17_2,
+    Q17_3: Q17_3,
+    Q17_4: Q17_4,
+    Q17_5: Q17_5,
+    Q18_1: Q18_1,
+    Q18_2: Q18_2,
+    Q18_3: Q18_3,
+    Q18_4: Q18_4,
+    Q18_5: Q18_5,
+    Q19_1: Q19_1,
+    Q19_2: Q19_2,
+    Q19_3: Q19_3,
+    Q19_4: Q19_4,
+    Q19_5: Q19_5,
+    Q20_1: Q20_1,
+    Q20_2: Q20_2,
+    Q20_3: Q20_3,
+    Q20_4: Q20_4,
+    Q20_5: Q20_5,
+    Q21_1: Q21_1,
+    Q21_2: Q21_2,
+    Q21_3: Q21_3,
+    Q21_4: Q21_4,
+    Q21_5: Q21_5,
+    Q22_1: Q22_1,
+    Q22_2: Q22_2,
+    Q22_3: Q22_3,
+    Q22_4: Q22_4,
+    Q22_5: Q22_5
+  },
 
-    data() {
-        return {
-            hours: 0,
-            minutes: 10,
-            seconds: 0,
-            counter: 600,
-            styleObject: {
-                color: "black",
-                fontSize: "25px"
-            },
-            styleObject2: {
-                color: "white",
-                fontSize: "28px",
-                "background-image": "url(images/hezagon.png)",
-                "background-size": "contain",
-                "background-repeat": "no-repeat",
-                "background-position": "center"
-            },
+  data() {
+    return {
+      hours: 0,
+      minutes: 10,
+      seconds: 0,
+      counter: 600,
+      styleObject: {
+        color: "black",
+        fontSize: "25px",
+      },
+      styleObject2: {
+        color: "white",
+        fontSize: "28px",
+        "background-image": "url(images/hezagon.png)",
+        "background-size": "contain",
+        "background-repeat": "no-repeat",
+        "background-position": "center",
+      },
 
-            styleObject3: {
-                color: "D1D3D4",
-                fontSize: "25px"
-            },
-            random: 0,
-            ramdomCheck: [],
-            currentQuestion: 0,
-            showScore: false,
-            score: 0,
-            countDown: 600,
-            timer: null,
-            startQuiz: false,
-            questionsRan: [],
-            questions: [
-                {
-                    title: "1",
-                    component: Subsection1_3_1,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน B",
-                    answerOptions: [
-                        { answerText: Q1_1, isCorrect: true },
-                        { answerText: Q1_2, isCorrect: false },
-                        { answerText: Q1_3, isCorrect: false },
-                        { answerText: Q1_4, isCorrect: false },
-                        { answerText: Q1_5, isCorrect: false }
-                    ]
-                },
-                {
-                    title: "2",
-                    component: Subsection1_3_2,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน C",
-                    answerOptions: [
-                        { answerText: Q2_1, isCorrect: false },
-                        { answerText: Q2_2, isCorrect: false },
-                        { answerText: Q2_3, isCorrect: false },
-                        { answerText: Q2_4, isCorrect: false },
-                        { answerText: Q2_5, isCorrect: true }
-                    ]
-                },
-                {
-                    title: "3",
-                    component: Subsection1_3_3,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
-                    answerOptions: [
-                        { answerText: Q3_1, isCorrect: false },
-                        { answerText: Q3_2, isCorrect: false },
-                        { answerText: Q3_3, isCorrect: true },
-                        { answerText: Q3_4, isCorrect: false },
-                        { answerText: Q3_5, isCorrect: false }
-                    ]
-                },
-                {
-                    title: "4",
-                    component: Subsection4_6_4,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน C",
-                    answerOptions: [
-                        { answerText: Q4_1, isCorrect: false },
-                        { answerText: Q4_2, isCorrect: false },
-                        { answerText: Q4_3, isCorrect: false },
-                        { answerText: Q4_4, isCorrect: false },
-                        { answerText: Q4_5, isCorrect: true }
-                    ]
-                },
-                {
-                    title: "5",
-                    component: Subsection4_6_5,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
-                    answerOptions: [
-                        { answerText: Q5_1, isCorrect: false },
-                        { answerText: Q5_2, isCorrect: false },
-                        { answerText: Q5_3, isCorrect: false },
-                        { answerText: Q5_4, isCorrect: true },
-                        { answerText: Q5_5, isCorrect: false }
-                    ]
-                },
-                {
-                    title: "6",
-                    component: Subsection4_6_6,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน B",
-                    answerOptions: [
-                        { answerText: Q6_1, isCorrect: true },
-                        { answerText: Q6_2, isCorrect: false },
-                        { answerText: Q6_3, isCorrect: false },
-                        { answerText: Q6_4, isCorrect: false },
-                        { answerText: Q6_5, isCorrect: false }
-                    ]
-                },
-                {
-                    title: "7",
-                    component: Subsection7_8_7,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
-                    answerOptions: [
-                        { answerText: Q7_1, isCorrect: false },
-                        { answerText: Q7_2, isCorrect: false },
-                        { answerText: Q7_3, isCorrect: true },
-                        { answerText: Q7_4, isCorrect: false },
-                        { answerText: Q7_5, isCorrect: false }
-                    ]
-                },
-                {
-                    title: "8",
-                    component: Subsection7_8_8,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน C",
-                    answerOptions: [
-                        { answerText: Q8_1, isCorrect: false },
-                        { answerText: Q8_2, isCorrect: false },
-                        { answerText: Q8_3, isCorrect: false },
-                        { answerText: Q8_4, isCorrect: true },
-                        { answerText: Q8_5, isCorrect: false }
-                    ]
-                },
-                {
-                    title: "9",
-                    component: Subsection9_11_9,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
-                    answerOptions: [
-                        { answerText: Q9_1, isCorrect: false },
-                        { answerText: Q9_2, isCorrect: false },
-                        { answerText: Q9_3, isCorrect: false },
-                        { answerText: Q9_4, isCorrect: true },
-                        { answerText: Q9_5, isCorrect: false }
-                    ]
-                },
-                {
-                    title: "10",
-                    component: Subsection9_11_10,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน B",
-                    answerOptions: [
-                        { answerText: Q10_1, isCorrect: true },
-                        { answerText: Q10_2, isCorrect: false },
-                        { answerText: Q10_3, isCorrect: false },
-                        { answerText: Q10_4, isCorrect: false },
-                        { answerText: Q10_5, isCorrect: false }
-                    ]
-                },
-                {
-                    title: "11",
-                    component: Subsection9_11_11,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน C",
-                    answerOptions: [
-                        { answerText: Q11_1, isCorrect: true },
-                        { answerText: Q11_2, isCorrect: false },
-                        { answerText: Q11_3, isCorrect: false },
-                        { answerText: Q11_4, isCorrect: false },
-                        { answerText: Q11_5, isCorrect: false }
-                    ]
-                },
-                {
-                    title: "12",
-                    component: Subsection12_14_12,
-                    questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
-                    answerOptions: [
-                        { answerText: Q12_1, isCorrect: false },
-                        { answerText: Q12_2, isCorrect: true },
-                        { answerText: Q12_3, isCorrect: false },
-                        { answerText: Q12_4, isCorrect: false },
-                        { answerText: Q12_5, isCorrect: false }
-                    ]
-                }
-            ]
-        };
-    },
-    methods: {
-        startQuizFunc() {
-            this.startQuiz = true;
-            this.countDownTimer();
-            this.randomNum();
+      styleObject3: {
+        color: "D1D3D4",
+        fontSize: "25px",
+      },
+      random: 0,
+      ramdomCheck: [],
+      currentQuestion: 0,
+      showScore: false,
+      score: 0,
+      countDown: 600,
+      timer: null,
+      startQuiz: false,
+      questionsRan: [],
+      questions: [
+        {
+          title: "1",
+          component: Subsection1_3_1,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน B",
+          answerOptions: [
+            { answerText: Q1_1, isCorrect: true },
+            { answerText: Q1_2, isCorrect: false },
+            { answerText: Q1_3, isCorrect: false },
+            { answerText: Q1_4, isCorrect: false },
+            { answerText: Q1_5, isCorrect: false },
+          ],
         },
-        randomNum() {
-            var q = this.questions;
-            var quest = q.slice();
-            var rnd;
-            while (quest.length) {
-                rnd = Math.floor(Math.random() * quest.length);
-                console.log(quest[rnd].questionText);
-                this.questionsRan.push(quest[rnd]);
-                quest[rnd] = "";
-                quest = quest.filter(a => {
-                    return a;
-                });
-            }
-            console.log(this.questionsRan);
+        {
+          title: "2",
+          component: Subsection1_3_2,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน C",
+          answerOptions: [
+            { answerText: Q2_1, isCorrect: false },
+            { answerText: Q2_2, isCorrect: false },
+            { answerText: Q2_3, isCorrect: false },
+            { answerText: Q2_4, isCorrect: false },
+            { answerText: Q2_5, isCorrect: true },
+          ],
         },
-        handleAnswerClick(isCorrect) {
-            clearTimeout(this.timer);
-            let nextQuestion = this.currentQuestion + 1;
-            if (isCorrect) {
-                this.score = this.score + 1;
-            }
-            if (nextQuestion < this.questions.length - 2) {
-                this.currentQuestion = nextQuestion;
-                // this.$store.state.questionAttended = this.currentQuestion;
-                // localStorage.setItem('qattended', this.currentQuestion)
-                // this.countDown = 10;
-                this.countDownTimer();
-            } else {
-                // localStorage.removeItem('qattended')
-                this.showScore = true;
-                // localStorage.setItem('testComplete',this.showScore)
-            }
+        {
+          title: "3",
+          component: Subsection1_3_3,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q3_1, isCorrect: false },
+            { answerText: Q3_2, isCorrect: false },
+            { answerText: Q3_3, isCorrect: true },
+            { answerText: Q3_4, isCorrect: false },
+            { answerText: Q3_5, isCorrect: false },
+          ],
         },
-        countDownTimer() {
-            if (this.countDown > 0) {
-                this.timer = setTimeout(() => {
-                    this.countDown -= 1;
-
-                    this.seconds = --this.counter % 60;
-                    this.minutes = parseInt(this.counter / 60, 10) % 60;
-
-                    this.countDownTimer();
-                }, 1000);
-            } else {
-                this.handleAnswerClick(false);
-            }
-        }
+        {
+          title: "4",
+          component: Subsection4_6_4,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน C",
+          answerOptions: [
+            { answerText: Q4_1, isCorrect: false },
+            { answerText: Q4_2, isCorrect: false },
+            { answerText: Q4_3, isCorrect: false },
+            { answerText: Q4_4, isCorrect: false },
+            { answerText: Q4_5, isCorrect: true },
+          ],
+        },
+        {
+          title: "5",
+          component: Subsection4_6_5,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q5_1, isCorrect: false },
+            { answerText: Q5_2, isCorrect: false },
+            { answerText: Q5_3, isCorrect: false },
+            { answerText: Q5_4, isCorrect: true },
+            { answerText: Q5_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "6",
+          component: Subsection4_6_6,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน B",
+          answerOptions: [
+            { answerText: Q6_1, isCorrect: true },
+            { answerText: Q6_2, isCorrect: false },
+            { answerText: Q6_3, isCorrect: false },
+            { answerText: Q6_4, isCorrect: false },
+            { answerText: Q6_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "7",
+          component: Subsection7_8_7,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q7_1, isCorrect: false },
+            { answerText: Q7_2, isCorrect: false },
+            { answerText: Q7_3, isCorrect: true },
+            { answerText: Q7_4, isCorrect: false },
+            { answerText: Q7_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "8",
+          component: Subsection7_8_8,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน C",
+          answerOptions: [
+            { answerText: Q8_1, isCorrect: false },
+            { answerText: Q8_2, isCorrect: false },
+            { answerText: Q8_3, isCorrect: false },
+            { answerText: Q8_4, isCorrect: true },
+            { answerText: Q8_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "9",
+          component: Subsection9_11_9,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q9_1, isCorrect: false },
+            { answerText: Q9_2, isCorrect: false },
+            { answerText: Q9_3, isCorrect: false },
+            { answerText: Q9_4, isCorrect: true },
+            { answerText: Q9_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "10",
+          component: Subsection9_11_10,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน B",
+          answerOptions: [
+            { answerText: Q10_1, isCorrect: true },
+            { answerText: Q10_2, isCorrect: false },
+            { answerText: Q10_3, isCorrect: false },
+            { answerText: Q10_4, isCorrect: false },
+            { answerText: Q10_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "11",
+          component: Subsection9_11_11,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน C",
+          answerOptions: [
+            { answerText: Q11_1, isCorrect: true },
+            { answerText: Q11_2, isCorrect: false },
+            { answerText: Q11_3, isCorrect: false },
+            { answerText: Q11_4, isCorrect: false },
+            { answerText: Q11_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "12",
+          component: Subsection12_14_12,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q12_1, isCorrect: false },
+            { answerText: Q12_2, isCorrect: true },
+            { answerText: Q12_3, isCorrect: false },
+            { answerText: Q12_4, isCorrect: false },
+            { answerText: Q12_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "13",
+          component: Subsection12_14_13,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q13_1, isCorrect: false },
+            { answerText: Q13_2, isCorrect: false },
+            { answerText: Q13_3, isCorrect: false },
+            { answerText: Q13_4, isCorrect: true },
+            { answerText: Q13_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "14",
+          component: Subsection12_14_14,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q14_1, isCorrect: false },
+            { answerText: Q14_2, isCorrect: false },
+            { answerText: Q14_3, isCorrect: false },
+            { answerText: Q14_4, isCorrect: true },
+            { answerText: Q14_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "15",
+          component: Subsection15_17_15,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q15_1, isCorrect: false },
+            { answerText: Q15_2, isCorrect: false },
+            { answerText: Q15_3, isCorrect: false },
+            { answerText: Q15_4, isCorrect: true },
+            { answerText: Q15_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "16",
+          component: Subsection15_17_16,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q16_1, isCorrect: false },
+            { answerText: Q16_2, isCorrect: false },
+            { answerText: Q16_3, isCorrect: false },
+            { answerText: Q16_4, isCorrect: false },
+            { answerText: Q16_5, isCorrect: true },
+          ],
+        },
+        {
+          title: "17",
+          component: Subsection15_17_17,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q17_1, isCorrect: false },
+            { answerText: Q17_2, isCorrect: false },
+            { answerText: Q17_3, isCorrect: false },
+            { answerText: Q17_4, isCorrect: false },
+            { answerText: Q17_5, isCorrect: true },
+          ],
+        },
+        {
+          title: "18",
+          component: Subsection18_19_18,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q18_1, isCorrect: false },
+            { answerText: Q18_2, isCorrect: false },
+            { answerText: Q18_3, isCorrect: false },
+            { answerText: Q18_4, isCorrect: false },
+            { answerText: Q18_5, isCorrect: true },
+          ],
+        },
+        {
+          title: "19",
+          component: Subsection18_19_19,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q19_1, isCorrect: false },
+            { answerText: Q19_2, isCorrect: false },
+            { answerText: Q19_3, isCorrect: false },
+            { answerText: Q19_4, isCorrect: true },
+            { answerText: Q19_5, isCorrect: false },
+          ],
+        },
+        {
+          title: "20",
+          component: Subsection20_22_20,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q20_1, isCorrect: false },
+            { answerText: Q20_2, isCorrect: false },
+            { answerText: Q20_3, isCorrect: false },
+            { answerText: Q20_4, isCorrect: false },
+            { answerText: Q20_5, isCorrect: true },
+          ],
+        },
+        {
+          title: "21",
+          component: Subsection20_22_21,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q21_1, isCorrect: false },
+            { answerText: Q21_2, isCorrect: false },
+            { answerText: Q21_3, isCorrect: false },
+            { answerText: Q21_4, isCorrect: false },
+            { answerText: Q21_5, isCorrect: true },
+          ],
+        },
+        {
+          title: "22",
+          component: Subsection20_22_22,
+          questionText: "จงเลือกรูปจากด้านที่มองเห็น จากด้าน A",
+          answerOptions: [
+            { answerText: Q22_1, isCorrect: false },
+            { answerText: Q22_2, isCorrect: false },
+            { answerText: Q22_3, isCorrect: true },
+            { answerText: Q22_4, isCorrect: false },
+            { answerText: Q22_5, isCorrect: false },
+          ],
+        },
+      ],
+    };
+  },
+  methods: {
+    startQuizFunc() {
+      this.startQuiz = true;
+      this.countDownTimer();
+      this.randomNum();
     },
+    randomNum() {
+      var q = this.questions;
+      var quest = q.slice();
+      var rnd;
+      while (quest.length) {
+        rnd = Math.floor(Math.random() * quest.length);
+        console.log(quest[rnd].questionText);
+        this.questionsRan.push(quest[rnd]);
+        quest[rnd] = "";
+        quest = quest.filter((a) => {
+          return a;
+        });
+      }
+      console.log(this.questionsRan);
+    },
+    handleAnswerClick(isCorrect) {
+      clearTimeout(this.timer);
+      let nextQuestion = this.currentQuestion + 1;
+      if (isCorrect) {
+        this.score = this.score + 1;
+      }
+      if (nextQuestion < this.questions.length - 2) {
+        this.currentQuestion = nextQuestion;
+        // this.$store.state.questionAttended = this.currentQuestion;
+        // localStorage.setItem('qattended', this.currentQuestion)
+        // this.countDown = 10;
+        this.countDownTimer();
+      } else {
+        // localStorage.removeItem('qattended')
+        this.showScore = true;
+        // localStorage.setItem('testComplete',this.showScore)
+      }
+    },
+    countDownTimer() {
+      if (this.countDown > 0) {
+        this.timer = setTimeout(() => {
+          this.countDown -= 1;
 
-    mounted() {}
+          this.seconds = --this.counter % 60;
+          this.minutes = parseInt(this.counter / 60, 10) % 60;
+
+          this.countDownTimer();
+        }, 1000);
+      } else {
+        this.handleAnswerClick(false);
+      }
+    },
+  },
+
+  mounted() {},
 };
 </script>
 <style>
 .card-body {
-    font-family: "Sarabun", sans-serif;
+  font-family: "Sarabun", sans-serif;
 }
 
 .font-kanit {
-    font-family: "Kanit", sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
 .font-sarabun {
-    font-family: "Sarabun", sans-serif;
-    font-weight: bold;
-    color: #1a4c84;
-    font-size: 35px;
+  font-family: "Sarabun", sans-serif;
+  font-weight: bold;
+  color: #1a4c84;
+  font-size: 35px;
 }
 </style>

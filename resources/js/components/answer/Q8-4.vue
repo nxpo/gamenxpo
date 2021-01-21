@@ -1,9 +1,10 @@
 <template>
-<svg width="203" height="224" viewBox="0 0 203 224" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M52.7495 0.199951V0L0.349609 29.1V91.45L52.9495 120.35L105.8 91.1V29.4L52.9495 0.150024L52.7495 0.199951Z" fill="url(#paint0_linear)"/>
-<path d="M74.75 55.25L31.26 55.26L31.25 65.76L74.74 65.8199L74.75 55.25Z" fill="#F7A11F" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M74.7493 87.77V66.27H31.2793L31.2893 87.77H74.7493Z" fill="#F7A11F" stroke="#4A1200" stroke-width="0.5"/>
-<path d="M52.3093 28.47V22.59C51.3693 23.06 50.5993 23.86 49.9893 25.01C49.4093 26.11 49.0993 27.26 49.0693 28.47H52.3093ZM53.1194 28.47H54.5593L54.4592 29.22H53.1194V31.48H52.3093V29.22H48.1992C48.2292 27.2 48.6793 25.5 49.5593 24.1C50.4593 22.7 51.6394 21.8601 53.1194 21.5601V28.47Z" fill="white"/>
+<svg width="233" height="234" viewBox="-10 -8 233 234" fill="none" xmlns="http://www.w3.org/2000/svg" @mouseover="active = true" @mouseleave="active = false">
+<path v-show="active" d="M100.874 0.37227V0L0 54.162V170.21L101.259 224L203 169.559V54.7205L101.259 0.279231L100.874 0.37227Z" fill="url(#paint0_linear)" style="fill:lime;stroke:white;stroke-width:5;fill-rule:evenodd;"/>
+<path d="M99.3835 0.372157V0L0 54.162V170.21L99.7627 224L200 169.559V54.7205L99.7627 0.279231L99.3835 0.372157Z" fill="url(#paint0_linear)"/>
+<path d="M142 102L58.0193 102.019L58 121.887L141.981 122L142 102Z" fill="#F7A11F" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M142 162V122H58L58.0193 162H142Z" fill="#F7A11F" stroke="#4A1200" stroke-width="0.5"/>
+<path d="M97.7548 53.5382V42.8688C95.9812 43.7216 94.5283 45.1733 93.3774 47.26C92.2831 49.256 91.6983 51.3427 91.6417 53.5382H97.7548ZM99.2832 53.5382H102L101.811 54.8991H99.2832V59H97.7548V54.8991H90C90.0566 51.2338 90.9058 48.1491 92.5662 45.6088C94.2643 43.0684 96.4908 41.5444 99.2832 41V53.5382Z" fill="white"/>
 <defs>
 <linearGradient id="paint0_linear" x1="48.4096" y1="46.2" x2="48.4896" y2="126.3" gradientUnits="userSpaceOnUse">
 <stop stop-color="#3F88DE"/>
