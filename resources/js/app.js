@@ -23,18 +23,22 @@ import Vue from 'vue';
 import SvgVue from 'svg-vue';
 import flipbook from 'flipbook-vue';
 
+import onlyInt from 'vue-input-only-number';
+import VueFakeInput from 'vue-fake-input';
 
+Vue.use(VueFakeInput);
 Vue.use(BootstrapVue) // Telling Vue to use this in whole application
 Vue.component('test1-component', require('./components/test1.vue').default);
 Vue.component('test2-component', require('./components/test2.vue').default);
 Vue.component('test3-component', require('./components/test3.vue').default);
 
 Vue.component('book-component', require('../book/book.vue').default);
-
+// Vue.component('VueStar', require('../book/book.vue').default);
 
 Vue.component('flipbook', require('flipbook-vue').default);
+Vue.use(onlyInt);
 
-Vue.use(flipbook);
+Vue.use(flipbook);  
 Vue.use(SvgVue);
 
 

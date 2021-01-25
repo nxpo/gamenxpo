@@ -1,6 +1,7 @@
 <template>
   <div>
     <div v-if="showScore">You Scored {{ score }}</div>
+
     <div class="" v-else>
       <span v-if="!startQuiz">
         <div class="bgstart">
@@ -41,6 +42,7 @@
           </div>
         </div>
       </span>
+
 
       <span v-else>
         <nav

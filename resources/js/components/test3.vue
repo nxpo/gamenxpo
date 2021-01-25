@@ -1,91 +1,207 @@
 <template>
-    <div id="app">
-        <nav
-            class="navbar navbar-light"
-            style="background-color: white; height: 75px 
-  box-shadow: 5px 10px 18px #888888;"
-        >
-            <div class="col-2">
-                <a class="navbar-brand pl-5" href="#"><Logo /></a>
-            </div>
-            <div class="col-10">
-                <div class="row">
-                    <!-- <div
-                                class="col-sm text-center font-kanit"
-                                :key="index"
-                                v-for="(option, index) in questionsRan.length -
-                                    2"
-                            >
-                                <div v-if="index < currentQuestion">
-                                    <div v-bind:style="styleObject">
-                                        {{ index + 1 }}
-                                    </div>
-                                </div>
 
-                                <div v-if="index == currentQuestion">
-                                    <div v-bind:style="styleObject2">
-                                        {{ index + 1 }}
-                                    </div>
-                                </div>
+<div>
+    <div v-if="showScore">You Scored {{ score }}</div>
 
-                                <div v-if="index > currentQuestion">
-                                    <div v-bind:style="styleObject3">
-                                        {{ index + 1 }}
-                                    </div>
-                                </div>
-                            </div> -->
-                </div>
-            </div>
-        </nav>
-        <div class="imgup">
-            <b-row class="text-center">
-                <b-col></b-col>
-                <b-col cols="5">
-                    <div class="col text-center pt-5">
-                        <div class="card " style="">
-                            <b-progress class="" height="30px">
-                                <b-progress-bar
-                                    :style="{
-                                        'background-color': '#f5d020',
-                                        'background-image':
-                                            'linear-gradient(315deg, #f5d020 0%, #f53803 74%)'
-                                    }"
-                                    :max="816"
-                                    :value="imgTop"
-                                >
-                                </b-progress-bar>
-                            </b-progress>
-
-                            <div class="card-body" style=" height:145px">
-                                พิมคำตอบให้เร็วที่สุดก่อนนำ้ทะเลจะท่วม
-                            </div>
-                        </div>
-                    </div></b-col
-                >
-                <b-col></b-col>
+    <div class="" v-else>
+      <span v-if="!startQuiz">
+        <div class="bgstart">
+          <div class="container">
+            <b-row class="text-center" style="height: 25%">
+              <b-col style="top: 80%" class="font-sarabun"
+                >คำอธิบายแบบทดสอบ</b-col
+              >
             </b-row>
-            <div @click.stop="onClick">
-                <img
-                    class="img"
-                    src="images\water.png"
-                    width="2000"
-                    alt="kitty"
-                    :style="{ top: imgTop }"
-                />
-            </div>
+            <b-row class="text-center pt-2">
+              <textarea
+                id="w3review"
+                name="w3review"
+                rows="10"
+                readonly
+                cols="120"
+                style="
+                  color: #1e3966;
+                  resize: none;
+                  border: none;
+                  font-size: 30px;
+                  line-height: 50px;
+                "
+                class="card-body"
+              >
+              เป็นแบบทดสอบที่ผู้ทดสอบจะได้ทดสอบหาความสัมพันธ์ของแต่ละตัวเลข และการค้นหารูปแบบ (Pattern) ของความสัมพันธ์นั้น ซึ่งต้องอาศัยทักษะในเชิงตัวเลข ผสมผสานกับความสามารถในเชิงการวิเคราะห์  ร่วมกับการใช้สมาธิ ตลอดจนความรอบคอบในการทำโจทย์แต่ละข้อ
+ในแบบทดสอบนี้ จะมีตัวเลขที่มีความสัมพันธ์กันไม่ทางใดก็ทางหนึ่ง ตัวเลขเหล่านั้นจะมีความสัมพันธ์กันในแนวนอน และมีความสัมพันธ์กันในเชิงแนวตั้งด้วยเช่นกัน  ถึงแม้บางกรณีตัวเลขจะไม่ได้ระบุไว้ (-) แต่ก็ยังต้องให้ผู้ทดสอบหาความสัมพันธ์นั้นอยู่ และมีตัวเลขตัวหนึ่งซึ่งถูกแทนด้วยเครื่องหมายคำถาม (?) ซึ่งนั้น คือ ผู้ทดสอบต้องหาว่า ? คือ ตัวเลขใด
+  </textarea
+              >
+            </b-row>
+            <b-row class="text-center pt-4">
+              <b-col>
+                <a @click="startQuizFunc()">
+                  <startbtn></startbtn>
+                </a>
+              </b-col>
+            </b-row>
+          </div>
         </div>
+      </span>
+
+
+      <span v-else>
+      <nav
+                    class="navbar navbar-light"
+                    style="background-color: white; height: 65px 
+  box-shadow: 5px 10px 18px #888888;"
+                >
+                    <div class="col-2">
+                        <a class="navbar-brand pl-4" href="#"><Logo /></a>
+                    </div>
+                    <div class="col-10">
+                        <div class="row">
+                               <div
+                class="col-sm text-center font-kanit"
+                :key="index"
+                v-for="(option, index) in questionsRan.length "
+              >
+                <div v-if="index < currentQuestion">
+                  <div v-bind:style="styleObject">
+                    {{ index + 1 }}
+                  </div>
+                </div>
+
+                <div v-if="index == currentQuestion">
+                  <div v-bind:style="styleObject2">
+                    {{ index + 1 }}
+                  </div>
+                </div>
+
+                <div v-if="index > currentQuestion">
+                  <div v-bind:style="styleObject3">
+                    {{ index + 1 }}
+                  </div>
+                </div>
+              </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="imgup" >
+                    <b-row class="text-center">
+                        <b-col></b-col>
+                        <b-col cols="5">
+                            <div class="col text-center pt-5">
+                                <div class="card " style="">
+                                    <b-progress class="" height="30px">
+                                        <b-progress-bar
+                                            :style="{
+                                                'background-color': '#f5d020',
+                                                'background-image':
+                                                    'linear-gradient(315deg, #f5d020 0%, #f53803 74%)'
+                                            }"
+                                            :max="816"
+                                            :value="imgTop"
+                                        >
+                                        </b-progress-bar>
+                                    </b-progress>
+
+                                    <div
+                                        class="card-body"
+                                        style=" height:380px"
+                                    >
+                                        พิมพ์คำตอบให้เร็วที่สุดก่อนนำ้ทะเลจะท่วม
+                                        <b-row class="pt-4"    >
+                                            <b-col></b-col>
+                                            <b-col></b-col>
+                                            <b-col
+                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[0].answerText}}</span
+                                            ></b-col>
+                                            <b-col
+                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[1].answerText}}</span
+                                            ></b-col>
+                                            <b-col
+                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[2].answerText}}</span
+                                            ></b-col>
+                                            <b-col
+                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[3].answerText}}</span
+                                            ></b-col>
+                                            <b-col></b-col>
+                                            <b-col></b-col>
+                                        </b-row>
+                                        <b-row class="pt-4">
+                                            <b-col></b-col>
+                                            <b-col></b-col>
+                                            <b-col
+                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[4].answerText}}</span
+                                            ></b-col>
+                                            <b-col
+                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[5].answerText}}</span
+                                            ></b-col>
+                                            <b-col
+                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[6].answerText}}</span
+                                            ></b-col>
+                                            <b-col
+                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[7].answerText}}</span
+                                            ></b-col>
+                                            <b-col></b-col>
+                                            <b-col></b-col>
+                                        </b-row>
+                                         <a @click="handleAnswerClick()">
+  
+              </a>    
+              <div >{{aa[aa.length-2] }} {{aa[aa.length-1]}}</div>      
+  <!-- <vue-star animate="animated bounceIn" color="#F05654">
+    <i slot="icon" class="fa fa-heart"></i>
+  </vue-star> -->
+  <!-- <vue-fake-input
+  :length="2"
+  :fontSize="40"
+  inputColor="#31bce6"
+  fontColor="#ffc107"
+  :allowPaste="false"
+  :v-model="fullValue"
+  :onlyNumber="true"
+  @input="checkExist($event)"
+/> -->
+
+  
+                                    </div>
+                                </div></div
+                        ></b-col>
+                        <b-col></b-col>
+                    </b-row>
+                    <div >
+                        <img
+                            class="img"
+                            src="images\water.png"
+                            width="2000"
+                            alt="kitty"
+                            :style="{ top: imgTop }"
+                        />
+                    </div>
+                </div>
+      </span>
     </div>
+  </div>
+
+
+
+
+
 </template>
 
 <script>
 import Logo from "./icons/Logo.vue";
+import startbtn from "./icons/startbtn.vue";
 
 export default {
     components: {
-        Logo
+        Logo,
+        startbtn
     },
 
     data: () => ({
+            fullValue: '',
+      countDownChoise : 6,
+            amount: 7800,
+            anwser:'',
+            aa:[],
         hours: 0,
         minutes: 10,
         seconds: 0,
@@ -98,42 +214,230 @@ export default {
         countDown: 600,
         timer: null,
         startQuiz: false,
-        imgTop: 816
+        imgTop: 816,
+        max: 2,
+    text: '',
+      questionsRan: [],
+   styleObject: {
+        color: "4387CE",
+        fontSize: "25px",
+      },
+      styleObject2: {
+        color: "white",
+        fontSize: "28px",
+        "background-image": "url(images/Vector.png)",
+        "background-size": "contain",
+        "background-repeat": "no-repeat",
+        "background-position": "center",
+      },
+
+      styleObject3: {
+        color: "#91D3D9",
+        fontSize: "25px",
+      },
+        questions: [
+            {
+                title: "1",
+                answer: '3',
+                  answerOptions: [
+            { answerText: "1" },
+            { answerText: "?" },
+            { answerText: "5" },
+            { answerText: "7" },
+            { answerText: "-" },
+            { answerText: '6' },
+            { answerText: "-" },
+            { answerText: "-" },
+          ],
+            },
+            {
+                title: "2",
+                answer: '2',
+                 answerOptions: [
+            { answerText: "2" },
+            { answerText: "?" },
+            { answerText: "3" },
+            { answerText: "4" },
+            { answerText: "4" },
+            { answerText: '6' },
+            { answerText: "-" },
+            { answerText: "-" },
+          ],
+            },
+            {
+                title: "3",
+                answer: '3',
+               answerOptions: [
+            { answerText: "3" },
+            { answerText: "?" },
+            { answerText: "5" },
+            { answerText: "5" },
+            { answerText: "-" },
+            { answerText: '6' },
+            { answerText: "6" },
+            { answerText: "-" },
+          ],
+            },
+              {
+                title: "4",
+                answer: '3',
+               answerOptions: [
+            { answerText: "6" },
+            { answerText: "0" },
+            { answerText: "5" },
+            { answerText: "5" },
+            { answerText: "-" },
+            { answerText: '4' },
+            { answerText: "6" },
+            { answerText: "-" },
+          ],
+            }
+        ],
     }),
     methods: {
-        onClick(e) {
-            this.countDownTimer();
-        },
+
+        startQuizFunc() {
+    //   this.countDownTimer();
+  
+          
+
+      this.startQuiz = true;
+      this.countDownTimer();
+      this.randomNum();
+    },
+
+//  checkExist(event){
+// this.countDownTimerChoise()
+// console.log(event);
+// console.log(this.fullValue);
+
+//        } ,
+
+test(){
+
+},
+
+    randomNum() {
+      var q = this.questions;
+      var quest = q.slice();
+      var rnd;
+      console.log(this.questions);
+      console.log(quest);
+      while (quest.length) {
+        rnd = Math.floor(Math.random() * quest.length);
+        this.questionsRan.push(quest[rnd]);
+        quest[rnd] = "";
+        quest = quest.filter((a) => {
+          return a;
+        });
+      }
+      console.log(this.questionsRan);
+    },
+
+    handleAnswerClick() {
+      clearTimeout(this.timer);
+      this.anwser=''
+      this.countDownChoise =6
+      let nextQuestion = this.currentQuestion + 1;
+    //   if (isCorrect) {
+    //     this.score = this.score + 1;
+    //   }
+      if (nextQuestion < this.questions.length ) {
+        this.currentQuestion = nextQuestion;
+      
+      } else {
+        this.showScore = true;
+      }
+    },
+ 
 
         countDownTimer() {
             this.timer = setTimeout(() => {
-                this.countDown -= 1;
-                this.imgTop -= 0.68;
-                console.log(this.imgTop);
-                console.log(this.counter++);
+                if (this.imgTop >= 0) {
+                    this.countDown -= 1;
+                    this.imgTop -= 0.68;
+                    
+                }
 
                 this.countDownTimer();
             }, 1000);
         }
-        // onClick(e) {
-        //   this.imgTop += 1;
-        //           console.log(this.imgTop);
 
-        // }
     },
     mounted() {
-        console.log(this.imgTop);
-    }
+    let self = this; 
+ 
+ window.addEventListener('keyup', e => {
+var i =0
+for(i;i<=10;i++){
+if(e.code=='Digit'+i){
+console.log(i);        
+this.aa.push(i)
+
+if(this.aa.length%2 == 0){   
+  console.log('222');
+
+ if(this.countDownChoise > 0) {
+                   setTimeout(() => {
+                        this.countDownChoise -= 1
+
+                        console.log(this.countDownChoise);
+                       this.aa.shift();
+  this.aa.shift(1, 1);
+
+                    }, 1000)
+                }
+
+this.countDownChoise = 6
+  this.handleAnswerClick()
+}
+}
+
+}     
+console.log(this.aa);  
+
+	});
+
+//  function(ev) {
+// var i =0
+// for(i;i<=10;i++){
+// if(ev.code=='Digit'+i){
+// console.log(i);        }
+
+// }       
+
+//     });
+    
+}
 };
 </script>
 
 <style>
+.card-body {
+    font-family: "Sarabun", sans-serif;
+    font-size: 30px;
+    color: #1e3966;
+}
+
 .imgup {
     width: 100vw;
-    height: 891px;
+    height: 901px;
 }
 
 .img {
     position: absolute;
 }
+
+/* fontเฉลย 660000 */
+/* fe9900 */
+/* FF7000 */
+.dot {
+    height: 65px;
+    width: 65px;
+    background-color: #ff7000;
+    border-radius: 50%;
+    display: inline-block;
+}
 </style>
+
+

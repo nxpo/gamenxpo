@@ -34,6 +34,9 @@
         "ui": "^0.2.4",
         "vue": "^2.6.12",
         "vue-booklet": "^2.3.3",
-        "vue-shadow-dom": "^2.0.0"
+        "vue-fake-input": "^1.1.0",
+        "vue-input-only-number": "^1.1.0",
+        "vue-shadow-dom": "^2.0.0",
+        "vue-star": "0.0.4"
     }
 }
