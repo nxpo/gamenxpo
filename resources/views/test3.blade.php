@@ -3,7 +3,7 @@
         @extends('layouts.app')
 
 @section('content')
-<div id="app" class="bg">
+<div id="app" class="">
             <test3-component></test3-component>
         </div>
 @endsection
@@ -15,7 +15,6 @@
 .bg {
   /* The image used */
   background-image: url("images/bggame3.png");
-
   /* Full height */
   height: 100%; 
 

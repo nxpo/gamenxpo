@@ -18,6 +18,8 @@
 
   /* Full height */
   height: 100%; 
+  position: fixed;
+  width: 100%;
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -29,6 +31,8 @@
 .bgstart {
   /* The image used */
   background-image: url("images/bgstart.png");
+  position: fixed;
+  width: 100%;
 
   /* Full height */
   height: 99%; 

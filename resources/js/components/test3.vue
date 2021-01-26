@@ -57,7 +57,7 @@
                             <div
                                 class="col-sm text-center font-kanit"
                                 :key="index"
-                                v-for="(option, index) in questionsRan.length"
+                                v-for="(option, index) in questionsRan.length -5"
                             >
                                 <div v-if="index < currentQuestion">
                                     <div v-bind:style="styleObject">
@@ -80,7 +80,13 @@
                         </div>
                     </div>
                 </nav>
-                <div class="imgup">
+                <div class="imgup" style=" background-image: url('images/bggame3.png');
+  height: 100%; 
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;">
                     <b-row class="text-center">
                         <b-col></b-col>
                         <b-col
@@ -89,7 +95,7 @@
                 text-align: center;"
                         >
                             <div class="col text-center pt-5">
-                                <div class="card " style="">
+                                <div class="card " style="z-index: 1;">
                                     <b-progress class="" height="30px">
                                         <b-progress-bar
                                             :style="{
@@ -105,84 +111,35 @@
 
                                     <div
                                         class="card-body"
-                                        style=" height:380px"
+                                        style=" height:430px"
                                     >
                                         พิมพ์คำตอบให้เร็วที่สุดก่อนนำ้ทะเลจะท่วม
                                         <b-row class="pt-4">
                                             <b-col></b-col>
-                                            <b-col></b-col>
-                                            <b-col
-                                                ><span class="dot pt-2">{{
-                                                    questionsRan[
-                                                        currentQuestion
-                                                    ].answerOptions[0]
-                                                        .answerText
-                                                }}</span></b-col
-                                            >
-                                            <b-col
-                                                ><span class="dot pt-2">{{
-                                                    questionsRan[
-                                                        currentQuestion
-                                                    ].answerOptions[1]
-                                                        .answerText
-                                                }}</span></b-col
-                                            >
-                                            <b-col
-                                                ><span class="dot pt-2">{{
-                                                    questionsRan[
-                                                        currentQuestion
-                                                    ].answerOptions[2]
-                                                        .answerText
-                                                }}</span></b-col
-                                            >
-                                            <b-col
-                                                ><span class="dot pt-2">{{
-                                                    questionsRan[
-                                                        currentQuestion
-                                                    ].answerOptions[3]
-                                                        .answerText
-                                                }}</span></b-col
-                                            >
-                                            <b-col></b-col>
-                                            <b-col></b-col>
+                                            <b-col :key="index"
+                v-for="(option, index) in questionsRan[currentQuestion]
+                .answerOptions.slice(0, questionsRan[currentQuestion]
+                .answerOptions.length /2) "
+                                                >
+                                                <span class="dot pt-2">
+                                                    {{option.answerText}}
+                                                    
+                                                </span>
+                                                
+
+
+                                                </b-col
+                                            ><b-col></b-col>
                                         </b-row>
-                                        <b-row class="pt-4">
+                                        <b-row class="pt-4" >
                                             <b-col></b-col>
-                                            <b-col></b-col>
-                                            <b-col
-                                                ><span class="dot pt-2">{{
-                                                    questionsRan[
-                                                        currentQuestion
-                                                    ].answerOptions[4]
-                                                        .answerText
-                                                }}</span></b-col
+                                              <b-col :key="index2"
+                v-for="(option2, index2) in questionsRan[currentQuestion]
+                .answerOptions.slice(questionsRan[currentQuestion]
+                .answerOptions.length /2) "
+                                                ><span class="dot pt-2">{{option2.answerText}}</span></b-col
                                             >
-                                            <b-col
-                                                ><span class="dot pt-2">{{
-                                                    questionsRan[
-                                                        currentQuestion
-                                                    ].answerOptions[5]
-                                                        .answerText
-                                                }}</span></b-col
-                                            >
-                                            <b-col
-                                                ><span class="dot pt-2">{{
-                                                    questionsRan[
-                                                        currentQuestion
-                                                    ].answerOptions[6]
-                                                        .answerText
-                                                }}</span></b-col
-                                            >
-                                            <b-col
-                                                ><span class="dot pt-2">{{
-                                                    questionsRan[
-                                                        currentQuestion
-                                                    ].answerOptions[7]
-                                                        .answerText
-                                                }}</span></b-col
-                                            >
-                                            <b-col></b-col>
-                                            <b-col></b-col>
+                                 <b-col></b-col>
                                         </b-row>
                                         <a @click="handleAnswerClick()"> </a>
                                         <b-row class="pt-5">
@@ -192,7 +149,7 @@
                                             <b-col
                                                 >
                                                     <div
-                                                        class="pt-2"
+                                                        class="pt-3"
                                                         style="  
                                                          width: 305px;;
                 text-align: center;
@@ -287,11 +244,11 @@ export default {
         },
         styleObject2: {
             color: "white",
-            fontSize: "28px",
             "background-image": "url(images/Vector.png)",
             "background-size": "contain",
             "background-repeat": "no-repeat",
-            "background-position": "center"
+            "background-position": "center",
+            "font-size":" 24px",
         },
 
         styleObject3: {
@@ -333,127 +290,138 @@ export default {
             
             {
                 title: "3",
-                answer: "3",
+                answer: "5",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
-                    { answerText: "5" },
-                    { answerText: "5" },
+                    { answerText: "2" },
+                    { answerText: "3" },
+                    { answerText: "?" },
                     { answerText: "-" },
-                    { answerText: "4" },
-                    { answerText: "6" },
-                    { answerText: "-" }
+                    { answerText: "13" },
+                    { answerText: "-" },
+                    { answerText: "-" },
+                    { answerText: "5" },
+                    { answerText: "8" },
+                    { answerText: "13" }
                 ]
             },
             {
                 title: "4",
-                answer: "3",
+                answer: "18",
                 answerOptions: [
+                    { answerText: "3" },
                     { answerText: "6" },
-                    { answerText: "0" },
-                    { answerText: "5" },
-                    { answerText: "5" },
+                    { answerText: "9" },
+                    { answerText: "12" },
+                    { answerText: "9" },
+                    { answerText: "?" },
                     { answerText: "-" },
-                    { answerText: "4" },
-                    { answerText: "6" },
-                    { answerText: "-" }
+                    { answerText: "36" }
                 ]
             },
             {
                 title: "5",
-                answer: "3",
+                answer: "1",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
-                    { answerText: "5" },
-                    { answerText: "5" },
-                    { answerText: "-" },
                     { answerText: "4" },
-                    { answerText: "6" },
-                    { answerText: "-" }
+                    { answerText: "3" },
+                    { answerText: "2" },
+                    { answerText: "?" },
+                    { answerText: "4" },
+                    { answerText: "-" },
+                    { answerText: "2" },
+                    { answerText: "1" }
                 ]
             },
             {
                 title: "6",
-                answer: "3",
+                answer: "8",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
-                    { answerText: "5" },
-                    { answerText: "5" },
-                    { answerText: "-" },
+                    { answerText: "2" },
                     { answerText: "4" },
                     { answerText: "6" },
-                    { answerText: "-" }
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "?" },
+                    { answerText: "12" },
+                    { answerText: "16" }
                 ]
             },
             {
                 title: "7",
                 answer: "3",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
-                    { answerText: "5" },
-                    { answerText: "5" },
+                    { answerText: "25" },
+                    { answerText: "16" },
+                    { answerText: "9" },
+                    { answerText: "4" },
                     { answerText: "-" },
                     { answerText: "4" },
-                    { answerText: "6" },
-                    { answerText: "-" }
+                    { answerText: "?" },
+                    { answerText: "2" }
                 ]
             },
             {
                 title: "8",
-                answer: "3",
+                answer: "15",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
-                    { answerText: "5" },
-                    { answerText: "5" },
+                    { answerText: "3" },
+                    { answerText: "7" },
+                    { answerText: "?" },
                     { answerText: "-" },
                     { answerText: "4" },
-                    { answerText: "6" },
-                    { answerText: "-" }
+                    { answerText: "8" },
+                    { answerText: "16" },
+                    { answerText: "32" }
                 ]
             },
             {
                 title: "9",
-                answer: "3",
+                answer: "39",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
-                    { answerText: "5" },
-                    { answerText: "5" },
+                    { answerText: "7" },
+                    { answerText: "12" },
+                    { answerText: "22" },
                     { answerText: "-" },
+                    { answerText: "82" },
                     { answerText: "4" },
-                    { answerText: "6" },
-                    { answerText: "-" }
+                    { answerText: "9" },
+                    { answerText: "19" },
+                    { answerText: "?" },
+                    { answerText: "79" }
                 ]
             },
             {
                 title: "10",
-                answer: "3",
+                answer: "20",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
-                    { answerText: "5" },
-                    { answerText: "5" },
+                    { answerText: "13" },
+                    { answerText: "14" },
+                    { answerText: "16" },
+                    { answerText: "?" },
+                    { answerText: "28" },
+                    { answerText: "1" },
                     { answerText: "-" },
                     { answerText: "4" },
-                    { answerText: "6" },
+                    { answerText: "8" },
                     { answerText: "-" }
                 ]
             },
             {
+                
                 title: "11",
-                answer: "3",
+                answer: "16",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
-                    { answerText: "5" },
-                    { answerText: "5" },
-                    { answerText: "-" },
                     { answerText: "4" },
-                    { answerText: "6" },
+                    { answerText: "5" },
+                    { answerText: "8" },
+                    { answerText: "10" },
+                    { answerText: "?" },
+                    { answerText: "20"},
+                    { answerText: "10" },
+                    { answerText: "8" },
+                    { answerText: "20" },
+                    { answerText: "16" },
+                    { answerText: "40" },
                     { answerText: "-" }
                 ]
             },
@@ -461,56 +429,68 @@ export default {
                 title: "12",
                 answer: "3",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
+                    { answerText: "?" },
                     { answerText: "5" },
-                    { answerText: "5" },
+                    { answerText: "7" },
+                    { answerText: "12" },
                     { answerText: "-" },
-                    { answerText: "4" },
-                    { answerText: "6" },
-                    { answerText: "-" }
+                    { answerText: "31" },
+                    { answerText: "3" },
+                    { answerText: "-" },
+                    { answerText: "8" },
+                    { answerText: "13" },
+                    { answerText: "20" },
+                    { answerText: "32" }
                 ]
             },
             {
                 title: "13",
-                answer: "3",
+                answer: "28",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
                     { answerText: "5" },
-                    { answerText: "5" },
+                    { answerText: "10" },
+                    { answerText: "7" },
+                    { answerText: "12" },
                     { answerText: "-" },
-                    { answerText: "4" },
-                    { answerText: "6" },
-                    { answerText: "-" }
+                    { answerText: "10" },
+                    { answerText: "30" },
+                    { answerText: "?" },
+                    { answerText: "60" },
+                    { answerText: "54" }
                 ]
             },
             {
                 title: "14",
-                answer: "3",
+                answer: "31",
                 answerOptions: [
-                    { answerText: "6" },
                     { answerText: "0" },
                     { answerText: "5" },
+                    { answerText: "3" },
+                    { answerText: "13" },
+                    { answerText: "11" },
+                    { answerText: "?" },
                     { answerText: "5" },
                     { answerText: "-" },
-                    { answerText: "4" },
-                    { answerText: "6" },
+                    { answerText: "10" },
+                    { answerText: "2" },
+                    { answerText: "20" },
                     { answerText: "-" }
                 ]
             },
             {
                 title: "15",
-                answer: "3",
+                answer: "9",
                 answerOptions: [
-                    { answerText: "6" },
-                    { answerText: "0" },
-                    { answerText: "5" },
+                    { answerText: "13" },
+                    { answerText: "?" },
+                    { answerText: "22" },
+                    { answerText: "31" },
+                    { answerText: "53" },
                     { answerText: "5" },
                     { answerText: "-" },
-                    { answerText: "4" },
-                    { answerText: "6" },
-                    { answerText: "-" }
+                    { answerText: "12" },
+                   { answerText: "19" },
+                    { answerText: "31" }
                 ]
             },
         ]
@@ -549,8 +529,9 @@ export default {
             //   if (isCorrect) {
             //     this.score = this.score + 1;
             //   }
-            if (nextQuestion < this.questions.length) {
+            if (nextQuestion < this.questions.length -5 ) {
                 this.currentQuestion = nextQuestion;
+                this.countDownTimer();
             } else {
                 this.showScore = true;
             }
@@ -561,6 +542,7 @@ export default {
                 if (this.imgTop >= 0) {
                     this.countDown -= 1;
                     this.imgTop -= 0.68;
+                    console.log(this.countDown);
                 }
 
                 this.countDownTimer();
@@ -616,11 +598,14 @@ export default {
     font-family: "Sarabun", sans-serif;
     font-size: 30px;
     color: #1e3966;
+    
 }
 
 .imgup {
     width: 100vw;
     height: 901px;
+
+
 }
 
 .img {
@@ -644,4 +629,9 @@ export default {
       background-image: url("images/TextAns.png");
 
  } */
+
+ .font-kanit {
+  font-family: "Kanit", sans-serif;
+  font-size: "9px"
+}
 </style>
