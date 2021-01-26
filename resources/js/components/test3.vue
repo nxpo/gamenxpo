@@ -1,52 +1,50 @@
 <template>
+    <div>
+        <div v-if="showScore">You Scored {{ score }}</div>
 
-<div>
-    <div v-if="showScore">You Scored {{ score }}</div>
-
-    <div class="" v-else>
-      <span v-if="!startQuiz">
-        <div class="bgstart">
-          <div class="container">
-            <b-row class="text-center" style="height: 25%">
-              <b-col style="top: 80%" class="font-sarabun"
-                >คำอธิบายแบบทดสอบ</b-col
-              >
-            </b-row>
-            <b-row class="text-center pt-2">
-              <textarea
-                id="w3review"
-                name="w3review"
-                rows="10"
-                readonly
-                cols="120"
-                style="
+        <div class="" v-else>
+            <span v-if="!startQuiz">
+                <div class="bgstart">
+                    <div class="container">
+                        <b-row class="text-center" style="height: 25%">
+                            <b-col style="top: 80%" class="font-sarabun"
+                                >คำอธิบายแบบทดสอบ</b-col
+                            >
+                        </b-row>
+                        <b-row class="text-center pt-2">
+                            <textarea
+                                id="w3review"
+                                name="w3review"
+                                rows="10"
+                                readonly
+                                cols="120"
+                                style="
                   color: #1e3966;
                   resize: none;
                   border: none;
                   font-size: 30px;
                   line-height: 50px;
                 "
-                class="card-body"
-              >
+                                class="card-body"
+                            >
               เป็นแบบทดสอบที่ผู้ทดสอบจะได้ทดสอบหาความสัมพันธ์ของแต่ละตัวเลข และการค้นหารูปแบบ (Pattern) ของความสัมพันธ์นั้น ซึ่งต้องอาศัยทักษะในเชิงตัวเลข ผสมผสานกับความสามารถในเชิงการวิเคราะห์  ร่วมกับการใช้สมาธิ ตลอดจนความรอบคอบในการทำโจทย์แต่ละข้อ
 ในแบบทดสอบนี้ จะมีตัวเลขที่มีความสัมพันธ์กันไม่ทางใดก็ทางหนึ่ง ตัวเลขเหล่านั้นจะมีความสัมพันธ์กันในแนวนอน และมีความสัมพันธ์กันในเชิงแนวตั้งด้วยเช่นกัน  ถึงแม้บางกรณีตัวเลขจะไม่ได้ระบุไว้ (-) แต่ก็ยังต้องให้ผู้ทดสอบหาความสัมพันธ์นั้นอยู่ และมีตัวเลขตัวหนึ่งซึ่งถูกแทนด้วยเครื่องหมายคำถาม (?) ซึ่งนั้น คือ ผู้ทดสอบต้องหาว่า ? คือ ตัวเลขใด
   </textarea
-              >
-            </b-row>
-            <b-row class="text-center pt-4">
-              <b-col>
-                <a @click="startQuizFunc()">
-                  <startbtn></startbtn>
-                </a>
-              </b-col>
-            </b-row>
-          </div>
-        </div>
-      </span>
+                            >
+                        </b-row>
+                        <b-row class="text-center pt-4">
+                            <b-col>
+                                <a @click="startQuizFunc()">
+                                    <startbtn></startbtn>
+                                </a>
+                            </b-col>
+                        </b-row>
+                    </div>
+                </div>
+            </span>
 
-
-      <span v-else>
-      <nav
+            <span v-else>
+                <nav
                     class="navbar navbar-light"
                     style="background-color: white; height: 65px 
   box-shadow: 5px 10px 18px #888888;"
@@ -56,36 +54,40 @@
                     </div>
                     <div class="col-10">
                         <div class="row">
-                               <div
-                class="col-sm text-center font-kanit"
-                :key="index"
-                v-for="(option, index) in questionsRan.length "
-              >
-                <div v-if="index < currentQuestion">
-                  <div v-bind:style="styleObject">
-                    {{ index + 1 }}
-                  </div>
-                </div>
+                            <div
+                                class="col-sm text-center font-kanit"
+                                :key="index"
+                                v-for="(option, index) in questionsRan.length"
+                            >
+                                <div v-if="index < currentQuestion">
+                                    <div v-bind:style="styleObject">
+                                        {{ index + 1 }}
+                                    </div>
+                                </div>
 
-                <div v-if="index == currentQuestion">
-                  <div v-bind:style="styleObject2">
-                    {{ index + 1 }}
-                  </div>
-                </div>
+                                <div v-if="index == currentQuestion">
+                                    <div v-bind:style="styleObject2">
+                                        {{ index + 1 }}
+                                    </div>
+                                </div>
 
-                <div v-if="index > currentQuestion">
-                  <div v-bind:style="styleObject3">
-                    {{ index + 1 }}
-                  </div>
-                </div>
-              </div>
+                                <div v-if="index > currentQuestion">
+                                    <div v-bind:style="styleObject3">
+                                        {{ index + 1 }}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </nav>
-                <div class="imgup" >
+                <div class="imgup">
                     <b-row class="text-center">
                         <b-col></b-col>
-                        <b-col cols="5">
+                        <b-col
+                            cols="5"
+                            style="  
+                text-align: center;"
+                        >
                             <div class="col text-center pt-5">
                                 <div class="card " style="">
                                     <b-progress class="" height="30px">
@@ -106,21 +108,41 @@
                                         style=" height:380px"
                                     >
                                         พิมพ์คำตอบให้เร็วที่สุดก่อนนำ้ทะเลจะท่วม
-                                        <b-row class="pt-4"    >
+                                        <b-row class="pt-4">
                                             <b-col></b-col>
                                             <b-col></b-col>
                                             <b-col
-                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[0].answerText}}</span
-                                            ></b-col>
+                                                ><span class="dot pt-2">{{
+                                                    questionsRan[
+                                                        currentQuestion
+                                                    ].answerOptions[0]
+                                                        .answerText
+                                                }}</span></b-col
+                                            >
                                             <b-col
-                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[1].answerText}}</span
-                                            ></b-col>
+                                                ><span class="dot pt-2">{{
+                                                    questionsRan[
+                                                        currentQuestion
+                                                    ].answerOptions[1]
+                                                        .answerText
+                                                }}</span></b-col
+                                            >
                                             <b-col
-                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[2].answerText}}</span
-                                            ></b-col>
+                                                ><span class="dot pt-2">{{
+                                                    questionsRan[
+                                                        currentQuestion
+                                                    ].answerOptions[2]
+                                                        .answerText
+                                                }}</span></b-col
+                                            >
                                             <b-col
-                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[3].answerText}}</span
-                                            ></b-col>
+                                                ><span class="dot pt-2">{{
+                                                    questionsRan[
+                                                        currentQuestion
+                                                    ].answerOptions[3]
+                                                        .answerText
+                                                }}</span></b-col
+                                            >
                                             <b-col></b-col>
                                             <b-col></b-col>
                                         </b-row>
@@ -128,28 +150,75 @@
                                             <b-col></b-col>
                                             <b-col></b-col>
                                             <b-col
-                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[4].answerText}}</span
-                                            ></b-col>
+                                                ><span class="dot pt-2">{{
+                                                    questionsRan[
+                                                        currentQuestion
+                                                    ].answerOptions[4]
+                                                        .answerText
+                                                }}</span></b-col
+                                            >
                                             <b-col
-                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[5].answerText}}</span
-                                            ></b-col>
+                                                ><span class="dot pt-2">{{
+                                                    questionsRan[
+                                                        currentQuestion
+                                                    ].answerOptions[5]
+                                                        .answerText
+                                                }}</span></b-col
+                                            >
                                             <b-col
-                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[6].answerText}}</span
-                                            ></b-col>
+                                                ><span class="dot pt-2">{{
+                                                    questionsRan[
+                                                        currentQuestion
+                                                    ].answerOptions[6]
+                                                        .answerText
+                                                }}</span></b-col
+                                            >
                                             <b-col
-                                                ><span class="dot">{{questionsRan[currentQuestion].answerOptions[7].answerText}}</span
-                                            ></b-col>
+                                                ><span class="dot pt-2">{{
+                                                    questionsRan[
+                                                        currentQuestion
+                                                    ].answerOptions[7]
+                                                        .answerText
+                                                }}</span></b-col
+                                            >
                                             <b-col></b-col>
                                             <b-col></b-col>
                                         </b-row>
-                                         <a @click="handleAnswerClick()">
-  
-              </a>    
-              <div >{{aa[aa.length-2] }} {{aa[aa.length-1]}}</div>      
-  <!-- <vue-star animate="animated bounceIn" color="#F05654">
+                                        <a @click="handleAnswerClick()"> </a>
+                                        <b-row class="pt-5">
+                                            <b-col
+                                                >
+                                            </b-col>
+                                            <b-col
+                                                >
+                                                    <div
+                                                        class="pt-2"
+                                                        style="  
+                                                         width: 305px;;
+                text-align: center;
+                height:200px;
+              background-repeat: no-repeat;
+      background-image: url('images/TextAns.png');"
+                                                    >
+                                                        {{aa[aa.length-2] }} {{aa[aa.length-1]}}
+                                                    </div>
+                                                </b-col
+                                            >
+                                            <b-col
+                                            ></b-col>
+                                        </b-row>
+
+                                        <!-- <div >
+                <img  class="pt-5"
+                            src="images\TextAns.png"
+                            :style="{ top: imgTop }"
+                        />
+                        {{aa[aa.length-2] }} {{aa[aa.length-1]}}
+              </div>       -->
+                                        <!-- <vue-star animate="animated bounceIn" color="#F05654">
     <i slot="icon" class="fa fa-heart"></i>
   </vue-star> -->
-  <!-- <vue-fake-input
+                                        <!-- <vue-fake-input
   :length="2"
   :fontSize="40"
   inputColor="#31bce6"
@@ -159,14 +228,13 @@
   :onlyNumber="true"
   @input="checkExist($event)"
 /> -->
-
-  
                                     </div>
-                                </div></div
-                        ></b-col>
+                                </div>
+                            </div></b-col
+                        >
                         <b-col></b-col>
                     </b-row>
-                    <div >
+                    <div>
                         <img
                             class="img"
                             src="images\water.png"
@@ -176,14 +244,9 @@
                         />
                     </div>
                 </div>
-      </span>
+            </span>
+        </div>
     </div>
-  </div>
-
-
-
-
-
 </template>
 
 <script>
@@ -197,11 +260,11 @@ export default {
     },
 
     data: () => ({
-            fullValue: '',
-      countDownChoise : 6,
-            amount: 7800,
-            anwser:'',
-            aa:[],
+        fullValue: "",
+        countDownChoise: 6,
+        amount: 7800,
+        anwser: "",
+        aa: [],
         hours: 0,
         minutes: 10,
         seconds: 0,
@@ -216,199 +279,335 @@ export default {
         startQuiz: false,
         imgTop: 816,
         max: 2,
-    text: '',
-      questionsRan: [],
-   styleObject: {
-        color: "4387CE",
-        fontSize: "25px",
-      },
-      styleObject2: {
-        color: "white",
-        fontSize: "28px",
-        "background-image": "url(images/Vector.png)",
-        "background-size": "contain",
-        "background-repeat": "no-repeat",
-        "background-position": "center",
-      },
+        text: "",
+        questionsRan: [],
+        styleObject: {
+            color: "4387CE",
+            fontSize: "25px"
+        },
+        styleObject2: {
+            color: "white",
+            fontSize: "28px",
+            "background-image": "url(images/Vector.png)",
+            "background-size": "contain",
+            "background-repeat": "no-repeat",
+            "background-position": "center"
+        },
 
-      styleObject3: {
-        color: "#91D3D9",
-        fontSize: "25px",
-      },
+        styleObject3: {
+            color: "#91D3D9",
+            fontSize: "25px"
+        },
         questions: [
+            
             {
                 title: "1",
-                answer: '3',
-                  answerOptions: [
-            { answerText: "1" },
-            { answerText: "?" },
-            { answerText: "5" },
-            { answerText: "7" },
-            { answerText: "-" },
-            { answerText: '6' },
-            { answerText: "-" },
-            { answerText: "-" },
-          ],
+                answer: "3",
+                answerOptions: [
+                    { answerText: "1" },
+                    { answerText: "?" },
+                    { answerText: "5" },
+                    { answerText: "7" },
+                    { answerText: "-" },
+                    { answerText: "6" },
+                    { answerText: "-" },
+                    { answerText: "-" }
+                ]
             },
             {
                 title: "2",
-                answer: '2',
-                 answerOptions: [
-            { answerText: "2" },
-            { answerText: "?" },
-            { answerText: "3" },
-            { answerText: "4" },
-            { answerText: "4" },
-            { answerText: '6' },
-            { answerText: "-" },
-            { answerText: "-" },
-          ],
+                answer: "2",
+                answerOptions: [
+                    { answerText: "-" },
+                    { answerText: "-" },
+                    { answerText: "8" },
+                    { answerText: "4" },
+                    { answerText: "?" },
+                    { answerText: "64" },
+                    { answerText: "32" },
+                    { answerText: "-" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                ]
             },
+            
             {
                 title: "3",
-                answer: '3',
-               answerOptions: [
-            { answerText: "3" },
-            { answerText: "?" },
-            { answerText: "5" },
-            { answerText: "5" },
-            { answerText: "-" },
-            { answerText: '6' },
-            { answerText: "6" },
-            { answerText: "-" },
-          ],
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
             },
-              {
+            {
                 title: "4",
-                answer: '3',
-               answerOptions: [
-            { answerText: "6" },
-            { answerText: "0" },
-            { answerText: "5" },
-            { answerText: "5" },
-            { answerText: "-" },
-            { answerText: '4' },
-            { answerText: "6" },
-            { answerText: "-" },
-          ],
-            }
-        ],
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "5",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "6",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "7",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "8",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "9",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "10",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "11",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "12",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "13",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "14",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+            {
+                title: "15",
+                answer: "3",
+                answerOptions: [
+                    { answerText: "6" },
+                    { answerText: "0" },
+                    { answerText: "5" },
+                    { answerText: "5" },
+                    { answerText: "-" },
+                    { answerText: "4" },
+                    { answerText: "6" },
+                    { answerText: "-" }
+                ]
+            },
+        ]
     }),
     methods: {
-
         startQuizFunc() {
-    //   this.countDownTimer();
-  
-          
+            //   this.countDownTimer();
 
-      this.startQuiz = true;
-      this.countDownTimer();
-      this.randomNum();
-    },
+            this.startQuiz = true;
+            this.countDownTimer();
+            this.randomNum();
+        },
 
-//  checkExist(event){
-// this.countDownTimerChoise()
-// console.log(event);
-// console.log(this.fullValue);
+        randomNum() {
+            var q = this.questions;
+            var quest = q.slice();
+            var rnd;
+            console.log(this.questions);
+            console.log(quest);
+            while (quest.length) {
+                rnd = Math.floor(Math.random() * quest.length);
+                this.questionsRan.push(quest[rnd]);
+                quest[rnd] = "";
+                quest = quest.filter(a => {
+                    return a;
+                });
+            }
+            console.log(this.questionsRan);
+        },
 
-//        } ,
-
-test(){
-
-},
-
-    randomNum() {
-      var q = this.questions;
-      var quest = q.slice();
-      var rnd;
-      console.log(this.questions);
-      console.log(quest);
-      while (quest.length) {
-        rnd = Math.floor(Math.random() * quest.length);
-        this.questionsRan.push(quest[rnd]);
-        quest[rnd] = "";
-        quest = quest.filter((a) => {
-          return a;
-        });
-      }
-      console.log(this.questionsRan);
-    },
-
-    handleAnswerClick() {
-      clearTimeout(this.timer);
-      this.anwser=''
-      this.countDownChoise =6
-      let nextQuestion = this.currentQuestion + 1;
-    //   if (isCorrect) {
-    //     this.score = this.score + 1;
-    //   }
-      if (nextQuestion < this.questions.length ) {
-        this.currentQuestion = nextQuestion;
-      
-      } else {
-        this.showScore = true;
-      }
-    },
- 
+        handleAnswerClick() {
+            clearTimeout(this.timer);
+            this.anwser = "";
+            this.countDownChoise = 6;
+            let nextQuestion = this.currentQuestion + 1;
+            //   if (isCorrect) {
+            //     this.score = this.score + 1;
+            //   }
+            if (nextQuestion < this.questions.length) {
+                this.currentQuestion = nextQuestion;
+            } else {
+                this.showScore = true;
+            }
+        },
 
         countDownTimer() {
             this.timer = setTimeout(() => {
                 if (this.imgTop >= 0) {
                     this.countDown -= 1;
                     this.imgTop -= 0.68;
-                    
                 }
 
                 this.countDownTimer();
             }, 1000);
         }
-
     },
     mounted() {
-    let self = this; 
- 
- window.addEventListener('keyup', e => {
-var i =0
-for(i;i<=10;i++){
-if(e.code=='Digit'+i){
-console.log(i);        
-this.aa.push(i)
+        let self = this;
 
-if(this.aa.length%2 == 0){   
-  console.log('222');
+        window.addEventListener("keyup", e => {
+            var i = 0;
+            for (i; i <= 10; i++) {
+                if (e.code == "Digit" + i) {
+                    console.log(i);
+                    this.aa.push(i);
 
- if(this.countDownChoise > 0) {
-                   setTimeout(() => {
-                        this.countDownChoise -= 1
+                    if (this.aa.length % 2 == 0) {
+                        console.log("222");
 
-                        console.log(this.countDownChoise);
-                       this.aa.shift();
-  this.aa.shift(1, 1);
+                        if (this.countDownChoise > 0) {
+                            setTimeout(() => {
+                                this.countDownChoise -= 1;
 
-                    }, 1000)
+                                console.log(this.countDownChoise);
+                                this.aa.shift();
+                                this.aa.shift(1, 1);
+                            }, 1000);
+                        }
+
+                        this.countDownChoise = 6;
+                        this.handleAnswerClick();
+                    }
                 }
+            }
+            console.log(this.aa);
+        });
 
-this.countDownChoise = 6
-  this.handleAnswerClick()
-}
-}
+        //  function(ev) {
+        // var i =0
+        // for(i;i<=10;i++){
+        // if(ev.code=='Digit'+i){
+        // console.log(i);        }
 
-}     
-console.log(this.aa);  
+        // }
 
-	});
-
-//  function(ev) {
-// var i =0
-// for(i;i<=10;i++){
-// if(ev.code=='Digit'+i){
-// console.log(i);        }
-
-// }       
-
-//     });
-    
-}
+        //     });
+    }
 };
 </script>
 
@@ -438,6 +637,11 @@ console.log(this.aa);
     border-radius: 50%;
     display: inline-block;
 }
+
+/* .imageContainer {
+       width:200px; 
+       height:200px; 
+      background-image: url("images/TextAns.png");
+
+ } */
 </style>
-
-

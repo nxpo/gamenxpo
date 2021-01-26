@@ -23,6 +23,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: fixed;
+  width: 100%;
 }
 
 
@@ -32,7 +34,8 @@
 
   /* Full height */
   height: 99%; 
-
+  position: fixed;
+  width: 100%;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;

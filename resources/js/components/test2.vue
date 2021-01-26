@@ -82,14 +82,13 @@ top: 120%;
     left: 7%;"> -->
 
           
-<div class="bookbg" style="width: 65vw;
-    height: 65vh;">
+<div class="bookbg" >
   <book ></book>
 </div>
 
 
 <flipbook  :zooms= null
- class=" book" :pages="pages" :startPage="select"   v-slot="flipbook" style="     width: 58vw;
+ class=" book" :pages="pages" :startPage="select"   v-slot="flipbook" style=" width: 58vw;
     height: 58vh;">
      
       <!-- <button @click="flipbook.flipLeft">Previous Page</button> -->
@@ -208,24 +207,24 @@ console.log(this.isHidden);
 
 <style>
 .flipbook {
-  width: 30vw;
-  height: 30vh;
+ width: 100%;
+  height: 100%;
 
 }
 
 .bookbg{
     position: absolute;
-  width: 100%;
   height: auto;
 top: 145%;
     left: 20%;
      word-wrap: break-word;
+       max-width: 1500px;
+
 }
 
 .book{
   position: absolute;
-  width: 100%;
-  height: auto;
+  
 top: 139%;
     left: 13.5%;
      
