@@ -81,7 +81,7 @@
                     </div>
                 </nav>
                 <div class="imgup" style=" background-image: url('images/bggame3.png');
-  height: 100%; 
+  height: 110%; 
 
   background-position: center;
   background-repeat: no-repeat;
@@ -105,7 +105,7 @@
                                             }"
                                             :max="816"
                                             :value="imgTop"
-                                        >
+                                        >{{ minutes }}:{{ seconds }}
                                         </b-progress-bar>
                                     </b-progress>
 
@@ -223,9 +223,9 @@ export default {
         anwser: "",
         aa: [],
         hours: 0,
-        minutes: 10,
+        minutes: 20,
         seconds: 0,
-        counter: 0,
+        counter: 1200,
         random: 0,
         ramdomCheck: [],
         currentQuestion: 0,
@@ -237,6 +237,7 @@ export default {
         imgTop: 816,
         max: 2,
         text: "",
+        answerUser: [],
         questionsRan: [],
         styleObject: {
             color: "4387CE",
@@ -506,15 +507,15 @@ export default {
 
         randomNum() {
             var q = this.questions;
-            var quest = q.slice();
+            var quest3 = q.slice();
             var rnd;
-            console.log(this.questions);
-            console.log(quest);
-            while (quest.length) {
-                rnd = Math.floor(Math.random() * quest.length);
-                this.questionsRan.push(quest[rnd]);
-                quest[rnd] = "";
-                quest = quest.filter(a => {
+            console.log(this.questions3);
+            console.log(quest3);
+            while (quest3.length) {
+                rnd = Math.floor(Math.random() * quest3.length);
+                this.questionsRan.push(quest3[rnd]);
+                quest3[rnd] = "";
+                quest3 = quest3.filter(a => {
                     return a;
                 });
             }
@@ -526,11 +527,16 @@ export default {
             this.anwser = "";
             this.countDownChoise = 6;
             let nextQuestion = this.currentQuestion + 1;
-            //   if (isCorrect) {
-            //     this.score = this.score + 1;
-            //   }
+          
+
             if (nextQuestion < this.questions.length -5 ) {
                 this.currentQuestion = nextQuestion;
+
+            //     console.log('aa'+this.questionsRan[this.currentQuestion].answer);
+
+            //  if (this.answerUser.length) {
+            //     this.score = this.score + 1;
+            //   }
                 this.countDownTimer();
             } else {
                 this.showScore = true;
@@ -542,7 +548,9 @@ export default {
                 if (this.imgTop >= 0) {
                     this.countDown -= 1;
                     this.imgTop -= 0.68;
-                    console.log(this.countDown);
+               
+          this.seconds = --this.counter % 60;
+          this.minutes = parseInt(this.counter / 60, 10) % 60;
                 }
 
                 this.countDownTimer();
@@ -554,9 +562,15 @@ export default {
 
         window.addEventListener("keyup", e => {
             var i = 0;
+            console.log(e.key);
+           
             for (i; i <= 10; i++) {
                 if (e.code == "Digit" + i) {
-                    console.log(i);
+                    this.answerUser.push(i)
+
+console.log('sd'+ this.answerUser.length );
+console.log('a'+this.answerUser.length-1);
+
                     this.aa.push(i);
 
                     if (this.aa.length % 2 == 0) {
@@ -566,7 +580,7 @@ export default {
                             setTimeout(() => {
                                 this.countDownChoise -= 1;
 
-                                console.log(this.countDownChoise);
+                                // console.log(this.countDownChoise);
                                 this.aa.shift();
                                 this.aa.shift(1, 1);
                             }, 1000);

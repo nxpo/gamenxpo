@@ -11,7 +11,7 @@
                 >คำอธิบายแบบทดสอบ</b-col
               >
             </b-row>
-            <b-row class="text-center pt-2">
+            <b-row class="text-center pt-2 font-sarabun">
               <textarea
                 id="w3review"
                 name="w3review"
@@ -757,14 +757,15 @@ export default {
     },
     randomNum() {
       var q = this.questions;
-      var quest = q.slice();
+      var quest1 = q.slice();
       var rnd;
-      while (quest.length) {
-        rnd = Math.floor(Math.random() * quest.length);
-        console.log(quest[rnd].questionText);
-        this.questionsRan.push(quest[rnd]);
-        quest[rnd] = "";
-        quest = quest.filter((a) => {
+      while (quest1.length) {
+        rnd = Math.floor(Math.random() * quest1.length);
+        console.log(quest1[rnd]);
+        console.log(quest1[rnd].questionText);
+        this.questionsRan.push(quest1[rnd]);
+        quest1[rnd] = "";
+        quest1 = quest1.filter((a) => {
           return a;
         });
       }

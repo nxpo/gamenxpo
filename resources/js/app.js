@@ -23,6 +23,7 @@ import Vue from 'vue';
 import SvgVue from 'svg-vue';
 import flipbook from 'flipbook-vue';
 
+
 import onlyInt from 'vue-input-only-number';
 import VueFakeInput from 'vue-fake-input';
 
