@@ -402,6 +402,7 @@ export default {
                         question2: "images/book/Ans/12.png"
                     }
                 },
+<<<<<<< HEAD
                 {
                     title: 2.1,
                     choise: [
@@ -666,11 +667,23 @@ export default {
                         { choiseText: "บิลลี", isCorrect: false },
                         { choiseText: "คอลิน", isCorrect: false }
                     ],
+=======
+
+                 {
+                    tietle:2.1,
+                    choise:{
+                        choiseText: 'ซูซี่',
+                        choiseText: 'โจซี',
+                        choiseText: 'ซัลลี่',
+                        choiseText: 'แอนนา',
+                    },
+>>>>>>> b35951269098cf7aa79d3d690520d205df251f0d
                     page: {
                         question1: "images/book/Ans/17.png",
                         question2: "images/book/Ans/172.png"
                     }
                 },
+<<<<<<< HEAD
                 {
                     title: 10.2,
                     choise: [
@@ -853,6 +866,16 @@ export default {
                         { choiseText: "ทอมและแซนดี", isCorrect: false },
                         { choiseText: "แซนดีและแซลลี ", isCorrect: false }
                     ],
+=======
+                 {
+                    tietle:2.2,
+                    choise:{
+                        choiseText: 'ซูซี่',
+                        choiseText: 'โจซี',
+                        choiseText: 'ซัลลี่',
+                        choiseText: 'แอนนา',
+                    },
+>>>>>>> b35951269098cf7aa79d3d690520d205df251f0d
                     page: {
                         question1: "images/book/Ans/28.png",
                         question2: "images/book/Ans/282.png"
@@ -904,6 +927,7 @@ export default {
                     }
                 },
                 {
+<<<<<<< HEAD
                     title: 15.1,
                     choise: [
                         {
@@ -927,12 +951,22 @@ export default {
                             isCorrect: false
                         }
                     ],
+=======
+                    tietle:5.1,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+>>>>>>> b35951269098cf7aa79d3d690520d205df251f0d
                     page: {
                         question1: "images/book/Ans/31.png",
                         question2: "images/book/Ans/312.png"
                     }
                 },
                 {
+<<<<<<< HEAD
                     title: 16.1,
                     choise: [
                         {
@@ -945,6 +979,355 @@ export default {
                         { choiseText: "3", isCorrect: false },
                         { choiseText: "ไม่ทราบเลย", isCorrect: false }
                     ],
+=======
+                    tietle:5.2,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:6,
+                    choise:{
+                        choiseText: 'ฟ้าใส่เสื้อ Size XL',
+                        choiseText: 'น้ำเงินใส่เสื้อ Size XL',
+                        choiseText: 'ดำใส่เสื้อ Size S',
+                        choiseText: 'ฟ้าใส่เสื้อ Size เดียวกับดำ',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:7.1,
+                    choise:{
+                        choiseText: 'ทอม',
+                        choiseText: 'ร็อบ',
+                        choiseText: 'แฟรงค์',
+                        choiseText: 'แซม',
+                        choiseText: 'โจ',
+                        choiseText: 'โทนี'
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:7.2,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:8.1,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:8.2,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:9.1,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:9.2,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:9.3,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:9.4,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:10.1,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:10.2,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:10.3,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:11.1,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:11.2,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:11.3,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:12.1,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:12.2,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:12.3,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:13.1,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:13.2,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:13.3,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:13.4,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:14,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:15,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:16,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+                    page: {
+                        question1: 'images/book/Q2/7.png',
+                        question2:'images/book/Q2/72.png',
+                    }
+                },
+                {
+                    tietle:17,
+                    choise:{
+                        choiseText: 'โตรอนโต',
+                        choiseText: 'ฟลอริดา',
+                        choiseText: 'โรม',
+                        choiseText: 'ปารีส',
+                    },
+>>>>>>> b35951269098cf7aa79d3d690520d205df251f0d
                     page: {
                         question1: "images/book/Ans/320.png",
                         question2: "images/book/Ans/322.png"
