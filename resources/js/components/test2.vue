@@ -1060,8 +1060,6 @@ export default {
         display: none;
     }
 } */
-.viewport {
-}
 
 .bookbg {
     position: absolute;
