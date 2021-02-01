@@ -57,7 +57,8 @@
                             <div
                                 class="col-sm text-center font-kanit"
                                 :key="index"
-                                v-for="(option, index) in questionsRan.length -5"
+                                v-for="(option, index) in questionsRan.length -
+                                    5"
                             >
                                 <div v-if="index < currentQuestion">
                                     <div v-bind:style="styleObject">
@@ -80,13 +81,16 @@
                         </div>
                     </div>
                 </nav>
-                <div class="imgup" style=" background-image: url('images/bggame3.png');
+                <div
+                    class="imgup"
+                    style=" background-image: url('images/bggame3.png');
   height: 110%; 
 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: fixed;">
+  position: fixed;"
+                >
                     <b-row class="text-center">
                         <b-col></b-col>
                         <b-col
@@ -105,7 +109,7 @@
                                             }"
                                             :max="816"
                                             :value="imgTop"
-                                        >{{ minutes }}:{{ seconds }}
+                                            >{{ minutes }}:{{ seconds }}
                                         </b-progress-bar>
                                     </b-progress>
 
@@ -116,53 +120,74 @@
                                         พิมพ์คำตอบให้เร็วที่สุดก่อนนำ้ทะเลจะท่วม
                                         <b-row class="pt-4">
                                             <b-col></b-col>
-                                            <b-col :key="index"
-                v-for="(option, index) in questionsRan[currentQuestion]
-                .answerOptions.slice(0, questionsRan[currentQuestion]
-                .answerOptions.length /2) "
-                                                >
-                                                <span class="dot pt-2">
-                                                    {{option.answerText}}
-                                                    
-                                                </span>
-                                                
-
-
-                                                </b-col
+                                            <b-col
+                                                :key="index"
+                                                v-for="(option,
+                                                index) in questionsRan[
+                                                    currentQuestion
+                                                ].answerOptions.slice(
+                                                    0,
+                                                    questionsRan[
+                                                        currentQuestion
+                                                    ].answerOptions.length / 2
+                                                )"
+                                            >
+                                                 <div v-if="option.answerText != '?'">
+                                                    <span class="dot pt-2">{{
+                                                        option.answerText
+                                                    }}</span>
+                                                </div>
+                                                <div v-if="option.answerText === '?'">
+                                                    <span class="dot2 pt-2">{{
+                                                        option.answerText
+                                                    }}</span>
+                                                </div> </b-col
                                             ><b-col></b-col>
                                         </b-row>
-                                        <b-row class="pt-4" >
+                                        <b-row class="pt-4">
                                             <b-col></b-col>
-                                              <b-col :key="index2"
-                v-for="(option2, index2) in questionsRan[currentQuestion]
-                .answerOptions.slice(questionsRan[currentQuestion]
-                .answerOptions.length /2) "
-                                                ><span class="dot pt-2">{{option2.answerText}}</span></b-col
+                                            <b-col
+                                                :key="index2"
+                                                v-for="(option2,
+                                                index2) in questionsRan[
+                                                    currentQuestion
+                                                ].answerOptions.slice(
+                                                    questionsRan[
+                                                        currentQuestion
+                                                    ].answerOptions.length / 2
+                                                )"
                                             >
-                                 <b-col></b-col>
+                                                <div v-if="option2.answerText != '?'">
+                                                    <span class="dot pt-2" >{{
+                                                        option2.answerText
+                                                    }}</span>
+                                                </div>
+                                                <div v-if="option2.answerText === '?'">
+                                                    <span class="dot2 pt-2" >{{
+                                                        option2.answerText
+                                                    }}</span>
+                                                </div>
+                                            </b-col>
+                                            <b-col></b-col>
                                         </b-row>
                                         <a @click="handleAnswerClick()"> </a>
                                         <b-row class="pt-5">
-                                            <b-col
-                                                >
-                                            </b-col>
-                                            <b-col
-                                                >
-                                                    <div
-                                                        class="pt-3"
-                                                        style="  
+                                            <b-col> </b-col>
+                                            <b-col>
+                                                <div
+                                                    class="pt-3"
+                                                    style="  
                                                          width: 305px;;
                 text-align: center;
                 height:200px;
               background-repeat: no-repeat;
       background-image: url('images/TextAns.png');"
-                                                    >
-                                                        {{aa[aa.length-2] }} {{aa[aa.length-1]}}
-                                                    </div>
-                                                </b-col
-                                            >
-                                            <b-col
-                                            ></b-col>
+                                                >
+                                                    {{ aa[aa.length - 2] }}
+                                                    {{ aa[aa.length - 1] }}
+                                                </div>
+                                            </b-col>
+                                            <b-col></b-col>
                                         </b-row>
 
                                         <!-- <div >
@@ -218,7 +243,7 @@ export default {
 
     data: () => ({
         fullValue: "",
-        countDownChoise: 6,
+        countDownChoise: 3,
         amount: 7800,
         anwser: "",
         aa: [],
@@ -249,7 +274,7 @@ export default {
             "background-size": "contain",
             "background-repeat": "no-repeat",
             "background-position": "center",
-            "font-size":" 24px",
+            "font-size": " 24px"
         },
 
         styleObject3: {
@@ -257,7 +282,6 @@ export default {
             fontSize: "25px"
         },
         questions: [
-            
             {
                 title: "1",
                 answer: "3",
@@ -285,10 +309,10 @@ export default {
                     { answerText: "32" },
                     { answerText: "-" },
                     { answerText: "-" },
-                    { answerText: "4" },
+                    { answerText: "4" }
                 ]
             },
-            
+
             {
                 title: "3",
                 answer: "5",
@@ -408,7 +432,6 @@ export default {
                 ]
             },
             {
-                
                 title: "11",
                 answer: "16",
                 answerOptions: [
@@ -417,7 +440,7 @@ export default {
                     { answerText: "8" },
                     { answerText: "10" },
                     { answerText: "?" },
-                    { answerText: "20"},
+                    { answerText: "20" },
                     { answerText: "10" },
                     { answerText: "8" },
                     { answerText: "20" },
@@ -490,10 +513,10 @@ export default {
                     { answerText: "5" },
                     { answerText: "-" },
                     { answerText: "12" },
-                   { answerText: "19" },
+                    { answerText: "19" },
                     { answerText: "31" }
                 ]
-            },
+            }
         ]
     }),
     methods: {
@@ -527,16 +550,15 @@ export default {
             this.anwser = "";
             this.countDownChoise = 6;
             let nextQuestion = this.currentQuestion + 1;
-          
 
-            if (nextQuestion < this.questions.length -5 ) {
+            if (nextQuestion < this.questions.length - 5) {
                 this.currentQuestion = nextQuestion;
 
-            //     console.log('aa'+this.questionsRan[this.currentQuestion].answer);
+                //     console.log('aa'+this.questionsRan[this.currentQuestion].answer);
 
-            //  if (this.answerUser.length) {
-            //     this.score = this.score + 1;
-            //   }
+                //  if (this.answerUser.length) {
+                //     this.score = this.score + 1;
+                //   }
                 this.countDownTimer();
             } else {
                 this.showScore = true;
@@ -548,9 +570,9 @@ export default {
                 if (this.imgTop >= 0) {
                     this.countDown -= 1;
                     this.imgTop -= 0.68;
-               
-          this.seconds = --this.counter % 60;
-          this.minutes = parseInt(this.counter / 60, 10) % 60;
+
+                    this.seconds = --this.counter % 60;
+                    this.minutes = parseInt(this.counter / 60, 10) % 60;
                 }
 
                 this.countDownTimer();
@@ -563,13 +585,13 @@ export default {
         window.addEventListener("keyup", e => {
             var i = 0;
             console.log(e.key);
-           
+
             for (i; i <= 10; i++) {
                 if (e.code == "Digit" + i) {
-                    this.answerUser.push(i)
+                    this.answerUser.push(i);
 
-console.log('sd'+ this.answerUser.length );
-console.log('a'+this.answerUser.length-1);
+                    console.log("sd" + this.answerUser.length);
+                    console.log("a" + this.answerUser.length - 1);
 
                     this.aa.push(i);
 
@@ -583,11 +605,12 @@ console.log('a'+this.answerUser.length-1);
                                 // console.log(this.countDownChoise);
                                 this.aa.shift();
                                 this.aa.shift(1, 1);
+                                 this.handleAnswerClick();
                             }, 1000);
                         }
 
                         this.countDownChoise = 6;
-                        this.handleAnswerClick();
+                       
                     }
                 }
             }
@@ -612,14 +635,11 @@ console.log('a'+this.answerUser.length-1);
     font-family: "Sarabun", sans-serif;
     font-size: 30px;
     color: #1e3966;
-    
 }
 
 .imgup {
     width: 100vw;
     height: 901px;
-
-
 }
 
 .img {
@@ -637,6 +657,14 @@ console.log('a'+this.answerUser.length-1);
     display: inline-block;
 }
 
+.dot2 {
+    height: 65px;
+    width: 65px;
+    background-color: #FE9900;
+    border-radius: 50%;
+    display: inline-block;
+    color:  #660000
+}
 /* .imageContainer {
        width:200px; 
        height:200px; 
@@ -644,8 +672,8 @@ console.log('a'+this.answerUser.length-1);
 
  } */
 
- .font-kanit {
-  font-family: "Kanit", sans-serif;
-  font-size: "9px"
+.font-kanit {
+    font-family: "Kanit", sans-serif;
+    font-size: "9px";
 }
 </style>

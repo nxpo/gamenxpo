@@ -88,8 +88,9 @@
                                     :startPage="select"
                                     v-slot="flipbook"
                                     style=" width: 80vw;
-    height: 80vh;"
-                                >
+    height: 80vh;
+  
+"       >
                                     <div class="btnbook" v-if="!isHidden">
                                         <div
                                             class="w3-card-4 w3-margin"
@@ -104,7 +105,7 @@
                                                                     flipbook.page /
                                                                         2 -
                                                                         0.5
-                                                                ].choise
+                                                                ].choice
                                                                     .length <= 4 && (questionsRan[
                                                                     flipbook.page /
                                                                         2 -
@@ -127,7 +128,7 @@
                                                                 flipbook.page /
                                                                     2 -
                                                                     0.5
-                                                            ].choise"
+                                                            ].choice"
                                                            
                                                         >
                                                             <div class="col-2 ">
@@ -139,18 +140,20 @@
                                                                         (isHidden = true),
                                                                             handleAnswerClick()
                                                                     "
-                                                                    class="button"
+                                                                    class=" buttonshadow"
+                                                   
                                                                 >
-                                                                    A</button
+                                                                    {{choiceAnswer[index]}}</button
                                                                 ><br />
                                                             </div>
                                                             <div
-                                                                class="col-10"
+                                                                class="col-10 "
                                                                 style="padding:8px"
                                                             >
-                                                                {{
-                                                                    option.choiseText
+                                                       {{
+                                                                    option.choiceText
                                                                 }}
+                                                               
                                                                
                                                             </div>
                                                         </div>
@@ -162,7 +165,7 @@
                                                                     flipbook.page /
                                                                         2 -
                                                                         0.5
-                                                                ].choise
+                                                                ].choice
                                                                     .length <= 4 && (questionsRan[
                                                                     flipbook.page /
                                                                         2 -
@@ -185,7 +188,7 @@
                                                                 flipbook.page /
                                                                     2 -
                                                                     0.5
-                                                            ].choise"
+                                                            ].choice"
                                                            
                                                         >
                                                             <div class="col-2 ">
@@ -197,17 +200,17 @@
                                                                         (isHidden = true),
                                                                             handleAnswerClick()
                                                                     "
-                                                                    class="button"
+                                                                    class=" buttonshadow"
                                                                 >
-                                                                    A</button
+                                                                    {{choiceAnswer[index]}}</button
                                                                 ><br />
                                                             </div>
                                                             <div
                                                                 class="col-10"
                                                                 style="padding:8px"
                                                             >
-                                                                {{
-                                                                    option.choiseText
+                                                               {{
+                                                                    option.choiceText
                                                                 }}
                                                                
                                                             </div>
@@ -222,8 +225,8 @@
                                                                     flipbook.page /
                                                                         2 -
                                                                         0.5
-                                                                ].choise
-                                                                    .length > 4
+                                                                ].choice
+                                                                    .length > 4 
                                                             ">
                                                         <div
                                                             class="row "
@@ -234,7 +237,7 @@
                                                                 flipbook.page /
                                                                     2 -
                                                                     0.5
-                                                            ].choise" style="padding:8px">
+                                                            ].choice" style="padding:8px">
                                                                 <div
                                                             class="row "
                                                         ><button
@@ -245,11 +248,11 @@
                                                                         (isHidden = true),
                                                                             handleAnswerClick()
                                                                     "
-                                                                    class="button"
+                                                                    class=" buttonshadow"
                                                                 >
-                                                                    A</button
-                                                                > {{
-                                                                    option.choiseText
+                                                                    {{choiceAnswer[index]}}</button
+                                                                > &nbsp;{{
+                                                                    option.choiceText
                                                                 }}</div>
                                                                 
 
@@ -258,6 +261,8 @@
                                                         </div>
                                                     </div>
 
+
+                                                  
                                                 </div>
                                             </div>
                                         </div>
@@ -339,6 +344,7 @@ import mark10w from "./book/tag/10w.vue";
 
 export default {
     components: {
+        
         startbtn,
         book,
         Logo,
@@ -367,6 +373,7 @@ export default {
 
     data() {
         return {
+            
             countDownChoise: 1,
             hours: 0,
             minutes: 10,
@@ -389,30 +396,33 @@ export default {
                 top: "55%",
                 left: "80%"
             },
+
+            choiceAnswer :['A','B','C','D','E','F'],
+             
+
             books: [
                 {
                     title: 1,
-                    choise: [
-                        { choiseText: "เอ็มม่า", isCorrect: false },
-                        { choiseText: "เจน", isCorrect: false },
-                        { choiseText: "พอลลีน", isCorrect: true }
+                    choice: [
+                        { choiceText: "เอ็มม่า", isCorrect: false },
+                        { choiceText: "เจน", isCorrect: false },
+                        { choiceText: "พอลลีน", isCorrect: true }
                     ],
                     page: {
                         question1: "images/book/Ans/1.png",
                         question2: "images/book/Ans/12.png"
                     }
                 },
-<<<<<<< HEAD
                 {
                     title: 2.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ซูซี่",
+                            choiceText: "ซูซี่",
                             isCorrect: false
                         },
-                        { choiseText: "โจซี", isCorrect: false },
-                        { choiseText: "ซัลลี่", isCorrect: false },
-                        { choiseText: "แอนนา", isCorrect: false }
+                        { choiceText: "โจซี", isCorrect: false },
+                        { choiceText: "ซัลลี่", isCorrect: false },
+                        { choiceText: "แอนนา", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/2.png",
@@ -421,14 +431,14 @@ export default {
                 },
                 {
                     title: 2.2,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ซูซี่",
+                            choiceText: "ซูซี่",
                             isCorrect: false
                         },
-                        { choiseText: "โจซี", isCorrect: false },
-                        { choiseText: "ซัลลี่", isCorrect: false },
-                        { choiseText: "แอนนา", isCorrect: false }
+                        { choiceText: "โจซี", isCorrect: false },
+                        { choiceText: "ซัลลี่", isCorrect: false },
+                        { choiceText: "แอนนา", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/3.png",
@@ -437,14 +447,14 @@ export default {
                 },
                 {
                     title: 3,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "สมศรี",
+                            choiceText: "สมศรี",
                             isCorrect: false
                         },
-                        { choiseText: "สมชาย", isCorrect: false },
-                        { choiseText: "นำ้ทิพย์", isCorrect: false },
-                        { choiseText: "ชวาลา", isCorrect: false }
+                        { choiceText: "สมชาย", isCorrect: false },
+                        { choiceText: "นำ้ทิพย์", isCorrect: false },
+                        { choiceText: "ชวาลา", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/4.png",
@@ -453,14 +463,14 @@ export default {
                 },
                 {
                     title: 4,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ประดับ",
+                            choiceText: "ประดับ",
                             isCorrect: false
                         },
-                        { choiseText: "ชาตรี", isCorrect: false },
-                        { choiseText: "ณรงค์", isCorrect: false },
-                        { choiseText: "วันเพ็ญ", isCorrect: false }
+                        { choiceText: "ชาตรี", isCorrect: false },
+                        { choiceText: "ณรงค์", isCorrect: false },
+                        { choiceText: "วันเพ็ญ", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/5.png",
@@ -469,14 +479,14 @@ export default {
                 },
                 {
                     title: 5.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "โตรอนโต",
+                            choiceText: "โตรอนโต",
                             isCorrect: false
                         },
-                        { choiseText: "ฟลอริดา", isCorrect: false },
-                        { choiseText: "โรม", isCorrect: false },
-                        { choiseText: "ปารีส", isCorrect: false }
+                        { choiceText: "ฟลอริดา", isCorrect: false },
+                        { choiceText: "โรม", isCorrect: false },
+                        { choiceText: "ปารีส", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/6.png",
@@ -485,14 +495,14 @@ export default {
                 },
                 {
                     title: 5.2,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "โตรอนโต",
+                            choiceText: "โตรอนโต",
                             isCorrect: false
                         },
-                        { choiseText: "ฟลอริดา", isCorrect: false },
-                        { choiseText: "โรม", isCorrect: false },
-                        { choiseText: "ปารีส", isCorrect: false }
+                        { choiceText: "ฟลอริดา", isCorrect: false },
+                        { choiceText: "โรม", isCorrect: false },
+                        { choiceText: "ปารีส", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/7.png",
@@ -501,18 +511,18 @@ export default {
                 },
                 {
                     title: 6,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ฟ้าใส่เสื้อ Size XL",
+                            choiceText: "ฟ้าใส่เสื้อ Size XL",
                             isCorrect: false
                         },
                         {
-                            choiseText: "น้ำเงินใส่เสื้อ Size XL",
+                            choiceText: "น้ำเงินใส่เสื้อ Size XL",
                             isCorrect: false
                         },
-                        { choiseText: "ดำใส่เสื้อ Size S", isCorrect: false },
+                        { choiceText: "ดำใส่เสื้อ Size S", isCorrect: false },
                         {
-                            choiseText: "ฟ้าใส่เสื้อ Size เดียวกับดำ",
+                            choiceText: "ฟ้าใส่เสื้อ Size เดียวกับดำ",
                             isCorrect: false
                         }
                     ],
@@ -523,16 +533,16 @@ export default {
                 },
                 {
                     title: 7.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ทอม",
+                            choiceText: "ทอม",
                             isCorrect: false
                         },
-                        { choiseText: "ร็อบ", isCorrect: false },
-                        { choiseText: "แฟรงค์", isCorrect: false },
-                        { choiseText: "แซม", isCorrect: false },
-                        { choiseText: "โจ", isCorrect: false },
-                        { choiseText: "โทนี", isCorrect: false }
+                        { choiceText: "ร็อบ", isCorrect: false },
+                        { choiceText: "แฟรงค์", isCorrect: false },
+                        { choiceText: "แซม", isCorrect: false },
+                        { choiceText: "โจ", isCorrect: false },
+                        { choiceText: "โทนี", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/9.png",
@@ -541,16 +551,16 @@ export default {
                 },
                 {
                     title: 7.2,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ทอม",
+                            choiceText: "ทอม",
                             isCorrect: false
                         },
-                        { choiseText: "ร็อบ", isCorrect: false },
-                        { choiseText: "แฟรงค์", isCorrect: false },
-                        { choiseText: "แซม", isCorrect: false },
-                        { choiseText: "โจ", isCorrect: false },
-                        { choiseText: "โทนี", isCorrect: false }
+                        { choiceText: "ร็อบ", isCorrect: false },
+                        { choiceText: "แฟรงค์", isCorrect: false },
+                        { choiceText: "แซม", isCorrect: false },
+                        { choiceText: "โจ", isCorrect: false },
+                        { choiceText: "โทนี", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/10.png",
@@ -559,14 +569,14 @@ export default {
                 },
                 {
                     title: 8.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "เฟร็ด",
+                            choiceText: "เฟร็ด",
                             isCorrect: false
                         },
-                        { choiseText: "โจ", isCorrect: false },
-                        { choiseText: "จอห์น", isCorrect: false },
-                        { choiseText: "การ์ธ", isCorrect: false }
+                        { choiceText: "โจ", isCorrect: false },
+                        { choiceText: "จอห์น", isCorrect: false },
+                        { choiceText: "การ์ธ", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/11.png",
@@ -575,14 +585,14 @@ export default {
                 },
                 {
                     title: 8.2,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "เฟร็ด",
+                            choiceText: "เฟร็ด",
                             isCorrect: false
                         },
-                        { choiseText: "โจ", isCorrect: false },
-                        { choiseText: "จอห์น", isCorrect: false },
-                        { choiseText: "การ์ธ", isCorrect: false }
+                        { choiceText: "โจ", isCorrect: false },
+                        { choiceText: "จอห์น", isCorrect: false },
+                        { choiceText: "การ์ธ", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/120.png",
@@ -591,15 +601,15 @@ export default {
                 },
                 {
                     title: 9.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ขนมปัง",
+                            choiceText: "ขนมปัง",
                             isCorrect: false
                         },
-                        { choiseText: "ไก่", isCorrect: false },
-                        { choiseText: "เนื้อแกะ", isCorrect: false },
-                        { choiseText: "ข้าว", isCorrect: false },
-                        { choiseText: "เนย", isCorrect: false }
+                        { choiceText: "ไก่", isCorrect: false },
+                        { choiceText: "เนื้อแกะ", isCorrect: false },
+                        { choiceText: "ข้าว", isCorrect: false },
+                        { choiceText: "เนย", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/13.png",
@@ -608,14 +618,14 @@ export default {
                 },
                 {
                     title: 9.2,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ชารอน",
+                            choiceText: "ชารอน",
                             isCorrect: false
                         },
-                        { choiseText: "เคลลี่", isCorrect: false },
-                        { choiseText: "โรบิน่า", isCorrect: false },
-                        { choiseText: "แซม", isCorrect: false }
+                        { choiceText: "เคลลี่", isCorrect: false },
+                        { choiceText: "โรบิน่า", isCorrect: false },
+                        { choiceText: "แซม", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/14.png",
@@ -624,14 +634,14 @@ export default {
                 },
                 {
                     title: 9.3,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ชารอน",
+                            choiceText: "ชารอน",
                             isCorrect: false
                         },
-                        { choiseText: "เคลลี่", isCorrect: false },
-                        { choiseText: "โรบิน่า", isCorrect: false },
-                        { choiseText: "แซม", isCorrect: false }
+                        { choiceText: "เคลลี่", isCorrect: false },
+                        { choiceText: "โรบิน่า", isCorrect: false },
+                        { choiceText: "แซม", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/15.png",
@@ -640,15 +650,15 @@ export default {
                 },
                 {
                     title: 9.4,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ขนมปัง",
+                            choiceText: "ขนมปัง",
                             isCorrect: false
                         },
-                        { choiseText: "ไก่", isCorrect: false },
-                        { choiseText: "เนื้อแกะ", isCorrect: false },
-                        { choiseText: "ข้าว", isCorrect: false },
-                        { choiseText: "เนย", isCorrect: false }
+                        { choiceText: "ไก่", isCorrect: false },
+                        { choiceText: "เนื้อแกะ", isCorrect: false },
+                        { choiceText: "ข้าว", isCorrect: false },
+                        { choiceText: "เนย", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/16.png",
@@ -657,45 +667,35 @@ export default {
                 },
                 {
                     title: 10.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "เคซี",
+                            choiceText: "เคซี",
                             isCorrect: false
                         },
-                        { choiseText: "สจ็วต", isCorrect: false },
-                        { choiseText: "ริตซี", isCorrect: false },
-                        { choiseText: "บิลลี", isCorrect: false },
-                        { choiseText: "คอลิน", isCorrect: false }
+                        { choiceText: "สจ็วต", isCorrect: false },
+                        { choiceText: "ริตซี", isCorrect: false },
+                        { choiceText: "บิลลี", isCorrect: false },
+                        { choiceText: "คอลิน", isCorrect: false }
                     ],
-=======
 
-                 {
-                    tietle:2.1,
-                    choise:{
-                        choiseText: 'ซูซี่',
-                        choiseText: 'โจซี',
-                        choiseText: 'ซัลลี่',
-                        choiseText: 'แอนนา',
-                    },
->>>>>>> b35951269098cf7aa79d3d690520d205df251f0d
                     page: {
                         question1: "images/book/Ans/17.png",
                         question2: "images/book/Ans/172.png"
                     }
                 },
-<<<<<<< HEAD
+
                 {
                     title: 10.2,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "5",
+                            choiceText: "5",
                             isCorrect: false
                         },
-                        { choiseText: "4", isCorrect: false },
-                        { choiseText: "3", isCorrect: false },
-                        { choiseText: "2", isCorrect: false },
-                        { choiseText: "1", isCorrect: false },
-                        { choiseText: "ไม่มีเลย", isCorrect: false }
+                        { choiceText: "4", isCorrect: false },
+                        { choiceText: "3", isCorrect: false },
+                        { choiceText: "2", isCorrect: false },
+                        { choiceText: "1", isCorrect: false },
+                        { choiceText: "ไม่มีเลย", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/18.png",
@@ -704,15 +704,15 @@ export default {
                 },
                 {
                     title: 10.3,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "เคซี",
+                            choiceText: "เคซี",
                             isCorrect: false
                         },
-                        { choiseText: "สจ็วต", isCorrect: false },
-                        { choiseText: "ริตซี", isCorrect: false },
-                        { choiseText: "บิลลี", isCorrect: false },
-                        { choiseText: "คอลิน", isCorrect: false }
+                        { choiceText: "สจ็วต", isCorrect: false },
+                        { choiceText: "ริตซี", isCorrect: false },
+                        { choiceText: "บิลลี", isCorrect: false },
+                        { choiceText: "คอลิน", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/19.png",
@@ -721,15 +721,15 @@ export default {
                 },
                 {
                     title: 11.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "คุณแบกชอว์",
+                            choiceText: "คุณแบกชอว์",
                             isCorrect: false
                         },
-                        { choiseText: "นางสาวเจนกินส์ ", isCorrect: false },
-                        { choiseText: "คุณนายชานส์ ", isCorrect: false },
-                        { choiseText: "คุณเฟลมมิง", isCorrect: false },
-                        { choiseText: "คุณมาร์ก", isCorrect: false }
+                        { choiceText: "นางสาวเจนกินส์ ", isCorrect: false },
+                        { choiceText: "คุณนายชานส์ ", isCorrect: false },
+                        { choiceText: "คุณเฟลมมิง", isCorrect: false },
+                        { choiceText: "คุณมาร์ก", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/20.png",
@@ -738,15 +738,15 @@ export default {
                 },
                 {
                     title: 11.2,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "คุณแบกชอว์",
+                            choiceText: "คุณแบกชอว์",
                             isCorrect: false
                         },
-                        { choiseText: "นางสาวเจนกินส์ ", isCorrect: false },
-                        { choiseText: "คุณนายชานส์ ", isCorrect: false },
-                        { choiseText: "คุณเฟลมมิง", isCorrect: false },
-                        { choiseText: "คุณมาร์ก", isCorrect: false }
+                        { choiceText: "นางสาวเจนกินส์ ", isCorrect: false },
+                        { choiceText: "คุณนายชานส์ ", isCorrect: false },
+                        { choiceText: "คุณเฟลมมิง", isCorrect: false },
+                        { choiceText: "คุณมาร์ก", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/21.png",
@@ -755,15 +755,15 @@ export default {
                 },
                 {
                     title: 11.3,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "คุณแบกชอว์",
+                            choiceText: "คุณแบกชอว์",
                             isCorrect: false
                         },
-                        { choiseText: "นางสาวเจนกินส์ ", isCorrect: false },
-                        { choiseText: "คุณนายชานส์ ", isCorrect: false },
-                        { choiseText: "คุณเฟลมมิง", isCorrect: false },
-                        { choiseText: "คุณมาร์ก", isCorrect: false }
+                        { choiceText: "นางสาวเจนกินส์ ", isCorrect: false },
+                        { choiceText: "คุณนายชานส์ ", isCorrect: false },
+                        { choiceText: "คุณเฟลมมิง", isCorrect: false },
+                        { choiceText: "คุณมาร์ก", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/220.png",
@@ -772,15 +772,15 @@ export default {
                 },
                 {
                     title: 12.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "1",
+                            choiceText: "1",
                             isCorrect: false
                         },
-                        { choiseText: "2", isCorrect: false },
-                        { choiseText: "3", isCorrect: false },
-                        { choiseText: "4", isCorrect: false },
-                        { choiseText: "0", isCorrect: false }
+                        { choiceText: "2", isCorrect: false },
+                        { choiceText: "3", isCorrect: false },
+                        { choiceText: "4", isCorrect: false },
+                        { choiceText: "0", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/23.png",
@@ -789,15 +789,15 @@ export default {
                 },
                 {
                     title: 12.2,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "1",
+                            choiceText: "1",
                             isCorrect: false
                         },
-                        { choiseText: "2", isCorrect: false },
-                        { choiseText: "3", isCorrect: false },
-                        { choiseText: "4", isCorrect: false },
-                        { choiseText: "0", isCorrect: false }
+                        { choiceText: "2", isCorrect: false },
+                        { choiceText: "3", isCorrect: false },
+                        { choiceText: "4", isCorrect: false },
+                        { choiceText: "0", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/24.png",
@@ -806,14 +806,14 @@ export default {
                 },
                 {
                     title: 12.3,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "โตรอนโต",
+                            choiceText: "โตรอนโต",
                             isCorrect: false
                         },
-                        { choiseText: "ฟลอริดา", isCorrect: false },
-                        { choiseText: "โรม", isCorrect: false },
-                        { choiseText: "ปารีส", isCorrect: false }
+                        { choiceText: "ฟลอริดา", isCorrect: false },
+                        { choiceText: "โรม", isCorrect: false },
+                        { choiceText: "ปารีส", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/25.png",
@@ -822,15 +822,15 @@ export default {
                 },
                 {
                     title: 13.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "แซลลี",
+                            choiceText: "แซลลี",
                             isCorrect: false
                         },
-                        { choiseText: "เชอริล", isCorrect: false },
-                        { choiseText: "ลอรา", isCorrect: false },
-                        { choiseText: "ทอม", isCorrect: false },
-                        { choiseText: "แซนดี", isCorrect: false }
+                        { choiceText: "เชอริล", isCorrect: false },
+                        { choiceText: "ลอรา", isCorrect: false },
+                        { choiceText: "ทอม", isCorrect: false },
+                        { choiceText: "แซนดี", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/26.png",
@@ -839,15 +839,15 @@ export default {
                 },
                 {
                     title: 13.2,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "แซลลี",
+                            choiceText: "แซลลี",
                             isCorrect: false
                         },
-                        { choiseText: "เชอริล", isCorrect: false },
-                        { choiseText: "ลอรา", isCorrect: false },
-                        { choiseText: "ทอม", isCorrect: false },
-                        { choiseText: "แซนดี", isCorrect: false }
+                        { choiceText: "เชอริล", isCorrect: false },
+                        { choiceText: "ลอรา", isCorrect: false },
+                        { choiceText: "ทอม", isCorrect: false },
+                        { choiceText: "แซนดี", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/27.png",
@@ -856,26 +856,16 @@ export default {
                 },
                 {
                     title: 13.3,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "แซลลีและลอรา",
+                            choiceText: "แซลลีและลอรา",
                             isCorrect: false
                         },
-                        { choiseText: "แซลลีและทอม", isCorrect: false },
-                        { choiseText: "ลอราและทอม", isCorrect: false },
-                        { choiseText: "ทอมและแซนดี", isCorrect: false },
-                        { choiseText: "แซนดีและแซลลี ", isCorrect: false }
+                        { choiceText: "แซลลีและทอม", isCorrect: false },
+                        { choiceText: "ลอราและทอม", isCorrect: false },
+                        { choiceText: "ทอมและแซนดี", isCorrect: false },
+                        { choiceText: "แซนดีและแซลลี ", isCorrect: false }
                     ],
-=======
-                 {
-                    tietle:2.2,
-                    choise:{
-                        choiseText: 'ซูซี่',
-                        choiseText: 'โจซี',
-                        choiseText: 'ซัลลี่',
-                        choiseText: 'แอนนา',
-                    },
->>>>>>> b35951269098cf7aa79d3d690520d205df251f0d
                     page: {
                         question1: "images/book/Ans/28.png",
                         question2: "images/book/Ans/282.png"
@@ -883,16 +873,16 @@ export default {
                 },
                 {
                     title: 13.4,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "7",
+                            choiceText: "7",
                             isCorrect: false
                         },
-                        { choiseText: "8", isCorrect: false },
-                        { choiseText: "9", isCorrect: false },
-                        { choiseText: "10", isCorrect: false },
-                        { choiseText: "11", isCorrect: false },
-                        { choiseText: "12", isCorrect: false }
+                        { choiceText: "8", isCorrect: false },
+                        { choiceText: "9", isCorrect: false },
+                        { choiceText: "10", isCorrect: false },
+                        { choiceText: "11", isCorrect: false },
+                        { choiceText: "12", isCorrect: false }
                     ],
                     page: {
                         question1: "images/book/Ans/29.png",
@@ -901,23 +891,23 @@ export default {
                 },
                 {
                     title: 14.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "ผิวถูกทำลายด้วยการตากแดดนานๆ",
+                            choiceText: "ผิวถูกทำลายด้วยการตากแดดนานๆ",
                             isCorrect: false
                         },
                         {
-                            choiseText:
+                            choiceText:
                                 "ชั้นหนังกำพร้าอยู่ก่อนชั้นหนังแท้ ดังนั้นจะดำก่อน",
                             isCorrect: false
                         },
                         {
-                            choiseText:
+                            choiceText:
                                 "สีผิวที่เข้มขึ้นมีผลมาจากการสร้างเมลานินใหม่หลังจากโดนรังสียูวี",
                             isCorrect: false
                         },
                         {
-                            choiseText: "คนผิวขาวจะผิวคล้ำเร็วกว่าคนผิวดำ",
+                            choiceText: "คนผิวขาวจะผิวคล้ำเร็วกว่าคนผิวดำ",
                             isCorrect: false
                         }
                     ],
@@ -927,407 +917,47 @@ export default {
                     }
                 },
                 {
-<<<<<<< HEAD
                     title: 15.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText:
+                            choiceText:
                                 "การเคารพกฎกติกาของสังคมทำให้สังคมมีความเป็นระเบียบเรียบร้อย",
                             isCorrect: false
                         },
                         {
-                            choiseText:
+                            choiceText:
                                 "มนุษย์เป็นสัตว์สังคมจึงต้องอยู่ด้วยกันอย่างมีความสุข",
                             isCorrect: false
                         },
                         {
-                            choiseText:
+                            choiceText:
                                 "สังคมสงบสุขได้เพราะทุกคนในสังคมไม่เบียดเบียนกัน",
                             isCorrect: false
                         },
                         {
-                            choiseText:
+                            choiceText:
                                 "ความสามัคคีทำให้สมาชิกในสังคมมีความสุข",
                             isCorrect: false
                         }
                     ],
-=======
-                    tietle:5.1,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
->>>>>>> b35951269098cf7aa79d3d690520d205df251f0d
                     page: {
                         question1: "images/book/Ans/31.png",
                         question2: "images/book/Ans/312.png"
                     }
                 },
                 {
-<<<<<<< HEAD
                     title: 16.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "4",
+                            choiceText: "4",
                             isCorrect: false
                         },
-                        { choiseText: "5", isCorrect: false },
-                        { choiseText: "6", isCorrect: false },
-                        { choiseText: "12", isCorrect: false },
-                        { choiseText: "3", isCorrect: false },
-                        { choiseText: "ไม่ทราบเลย", isCorrect: false }
+                        { choiceText: "5", isCorrect: false },
+                        { choiceText: "6", isCorrect: false },
+                        { choiceText: "12", isCorrect: false },
+                        { choiceText: "3", isCorrect: false },
+                        { choiceText: "ไม่ทราบเลย", isCorrect: false }
                     ],
-=======
-                    tietle:5.2,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:6,
-                    choise:{
-                        choiseText: 'ฟ้าใส่เสื้อ Size XL',
-                        choiseText: 'น้ำเงินใส่เสื้อ Size XL',
-                        choiseText: 'ดำใส่เสื้อ Size S',
-                        choiseText: 'ฟ้าใส่เสื้อ Size เดียวกับดำ',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:7.1,
-                    choise:{
-                        choiseText: 'ทอม',
-                        choiseText: 'ร็อบ',
-                        choiseText: 'แฟรงค์',
-                        choiseText: 'แซม',
-                        choiseText: 'โจ',
-                        choiseText: 'โทนี'
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:7.2,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:8.1,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:8.2,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:9.1,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:9.2,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:9.3,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:9.4,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:10.1,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:10.2,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:10.3,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:11.1,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:11.2,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:11.3,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:12.1,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:12.2,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:12.3,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:13.1,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:13.2,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:13.3,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:13.4,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:14,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:15,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:16,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
-                    page: {
-                        question1: 'images/book/Q2/7.png',
-                        question2:'images/book/Q2/72.png',
-                    }
-                },
-                {
-                    tietle:17,
-                    choise:{
-                        choiseText: 'โตรอนโต',
-                        choiseText: 'ฟลอริดา',
-                        choiseText: 'โรม',
-                        choiseText: 'ปารีส',
-                    },
->>>>>>> b35951269098cf7aa79d3d690520d205df251f0d
                     page: {
                         question1: "images/book/Ans/320.png",
                         question2: "images/book/Ans/322.png"
@@ -1335,23 +965,23 @@ export default {
                 },
                 {
                     title: 17.1,
-                    choise: [
+                    choice: [
                         {
-                            choiseText: "การกินกล้วยหอมทำให้น้ำหนักลดได้มาก",
+                            choiceText: "การกินกล้วยหอมทำให้น้ำหนักลดได้มาก",
                             isCorrect: false
                         },
                         {
-                            choiseText:
+                            choiceText:
                                 "วิตามินบีคือสารอาหารที่พบมากในกล้วยหอม",
                             isCorrect: false
                         },
                         {
-                            choiseText:
+                            choiceText:
                                 "ในกล้วยหอมมีวิตามินครบถ้วนตามที่ร่างกายต้องการ",
                             isCorrect: false
                         },
                         {
-                            choiseText:
+                            choiceText:
                                 "กล้วยหอมให้พลังงานสูง จึงสามารถรับประทานแทนอาหารเช้า",
                             isCorrect: false
                         }
@@ -1365,37 +995,37 @@ export default {
         };
     },
     methods: {
-        // selectPage(page, currentPage) {
-        //     this.select = page - 1;
-        //     console.log(page);
-        //     console.log(currentPage);
-        // },
+        
 
         startQuizFunc() {
             //   this.countDownTimer();
             this.startQuiz = true;
-            this.randomNum();
             this.countDownTimer();
+            this.randomNum();
+   
         },
 
         randomNum() {
             var q = this.books;
-            var quest2 = q.slice();
+      var quest1 = q.slice();
+      var rnd;
+            console.log(quest1);
             var rnd;
+            while (this.books.length) {
+                rnd = Math.floor(Math.random() * this.books.length);
 
-            while (quest2.length) {
-                rnd = Math.floor(Math.random() * quest2.length);
+                this.questionsRan.push(this.books[rnd]);
 
-                this.questionsRan.push(quest2[rnd]);
-
-                this.pagesRan.push(quest2[rnd].page.question1);
-                this.pagesRan.push(quest2[rnd].page.question2);
-                quest2[rnd] = "";
-                quest2 = quest2.filter(a => {
+                this.pagesRan.push(this.books[rnd].page.question1);
+                this.pagesRan.push(this.books[rnd].page.question2);
+                this.books[rnd] = "";
+                this.books = this.books.filter(a => {
                     return a;
                 });
             }
+           
         },
+       
         countDownTimer() {
             if (this.countDown > 0) {
                 this.timer = setTimeout(() => {
@@ -1410,10 +1040,11 @@ export default {
                 this.handleAnswerClick(false);
             }
         },
+
         handleAnswerClick() {
             this.countDownChoise = 2;
             let nextQuestion = this.currentQuestion + 1;
-
+        
             if (this.countDownChoise > 0) {
                 setTimeout(() => {
                     this.countDownChoise -= 1;
@@ -1421,28 +1052,38 @@ export default {
                     if (this.countDownChoise <= 1) {
                         this.isHidden = false;
                     }
-                    if (nextQuestion < this.books.length) {
+                    if (nextQuestion < this.questionsRan.length -23 ) {
                         this.currentQuestion = nextQuestion;
                     } else {
-                        this.showScore = true;
+                   this.showScore = true;
+                                    console.log(this.showScore);
+
                     }
                 }, 1000);
             }
         }
     },
-    mounted() {}
+    mounted() {
+    }
 };
 </script>
 
 <style>
-/* @media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1500px) {
     .bookbg {
         display: none;
     }
     .book {
         display: none;
     }
-} */
+    .bookmark{
+                display: none;
+
+    }
+}
+ .viewport{
+     pointer-events: none;
+}
 
 .bookbg {
     position: absolute;
@@ -1479,8 +1120,8 @@ export default {
     position: absolute;
     font-family: "Sarabun", sans-serif;
     z-index: 1;
-    top: 53%;
-    left: 80%;
+    top: 67%;
+    left: 78%;
     width: 340px;
     font-size: 22px;
 }
@@ -1516,4 +1157,33 @@ export default {
     color: #1a4c84;
     font-size: 35px;
 }
+
+
+
+.buttonshadow {
+  transition: box-shadow .3s;
+ height: 39px;
+    width: 39px;
+    border-radius: 50%;
+    border-style: none;
+  border: 1px solid gray;
+  background: gray;
+  color:white;
+  float: left;
+  
+}
+.buttonshadow:hover {
+  box-shadow: 0 0 11px #FF6317; 
+  background: #FF6317;
+}
+
+
+.answershadow {
+  color: black
+  
+}
+/* .answershadow:hover {
+  box-shadow: 0 0 11px #FF6317; 
+  background: #FF6317;
+} */
 </style>
