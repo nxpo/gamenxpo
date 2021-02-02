@@ -34,9 +34,8 @@
             </b-row>
             <b-row class="text-center pt-4">
               <b-col>
-                <a @click="startQuizFunc()">
-                  <startbtn></startbtn>
-                </a>
+                                                  <button @click="startQuizFunc()" class="start start1">START</button>
+
               </b-col>
             </b-row>
           </div>
@@ -822,5 +821,23 @@ export default {
   font-weight: bold;
   color: #1a4c84;
   font-size: 35px;
+}
+
+
+.start1 {
+  background: linear-gradient(to bottom, #ffa927 0%, #ff6400 100%);
+  color: white; 
+  border: none;
+                    font-size: 30px;
+
+}
+
+.start1:hover {
+  background: linear-gradient(to bottom, #2e68a8 0%, #234277 100%);
+  color: white;
+    border: none;
+  font-size: 30px;
+
+
 }
 </style>

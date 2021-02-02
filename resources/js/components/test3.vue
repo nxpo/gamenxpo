@@ -34,9 +34,8 @@
                         </b-row>
                         <b-row class="text-center pt-4">
                             <b-col>
-                                <a @click="startQuizFunc()">
-                                    <startbtn></startbtn>
-                                </a>
+                                                                  <button @click="startQuizFunc()" class="start start1">START</button>
+
                             </b-col>
                         </b-row>
                     </div>
@@ -532,8 +531,8 @@ export default {
             var q = this.questions;
             var quest3 = q.slice();
             var rnd;
-            console.log(this.questions3);
-            console.log(quest3);
+            // console.log(this.questions3);
+            // console.log(quest3);
             while (quest3.length) {
                 rnd = Math.floor(Math.random() * quest3.length);
                 this.questionsRan.push(quest3[rnd]);
@@ -542,7 +541,7 @@ export default {
                     return a;
                 });
             }
-            console.log(this.questionsRan);
+            // console.log(this.questionsRan);
         },
 
         handleAnswerClick() {
@@ -550,6 +549,7 @@ export default {
             this.anwser = "";
             this.countDownChoise = 6;
             let nextQuestion = this.currentQuestion + 1;
+            
 
             if (nextQuestion < this.questions.length - 5) {
                 this.currentQuestion = nextQuestion;
@@ -584,19 +584,19 @@ export default {
 
         window.addEventListener("keyup", e => {
             var i = 0;
-            console.log(e.key);
+            // console.log(e.key);
 
             for (i; i <= 10; i++) {
                 if (e.code == "Digit" + i) {
                     this.answerUser.push(i);
 
-                    console.log("sd" + this.answerUser.length);
-                    console.log("a" + this.answerUser.length - 1);
+                    // console.log("sd" + this.answerUser.length);
+                    // console.log("a" + this.answerUser.length - 1);
 
                     this.aa.push(i);
 
                     if (this.aa.length % 2 == 0) {
-                        console.log("222");
+                        // console.log("222");
 
                         if (this.countDownChoise > 0) {
                             setTimeout(() => {
@@ -614,18 +614,18 @@ export default {
                     }
                 }
             }
-            console.log(this.aa);
+            // console.log(this.aa);
+            // console.log(this.aa[0]*10 + this.aa[1]);
+            // // console.log(this.currentQuestion);
+            // console.log('answer'+this.questionsRan[this.currentQuestion].answer);
+if (this.aa[0]*10 + this.aa[1] == this.questionsRan[this.currentQuestion].answer) {
+console.log('true');
+this.score = this.score + 1;
+        }
+
         });
 
-        //  function(ev) {
-        // var i =0
-        // for(i;i<=10;i++){
-        // if(ev.code=='Digit'+i){
-        // console.log(i);        }
-
-        // }
-
-        //     });
+       
     }
 };
 </script>
@@ -675,5 +675,23 @@ export default {
 .font-kanit {
     font-family: "Kanit", sans-serif;
     font-size: "9px";
+}
+
+
+.start1 {
+  background: linear-gradient(to bottom, #ffa927 0%, #ff6400 100%);
+  color: white; 
+  border: none;
+                    font-size: 30px;
+
+}
+
+.start1:hover {
+  background: linear-gradient(to bottom, #2e68a8 0%, #234277 100%);
+  color: white;
+    border: none;
+  font-size: 30px;
+
+
 }
 </style>

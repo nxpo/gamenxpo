@@ -33,9 +33,9 @@
                         </b-row>
                         <b-row class="text-center pt-4">
                             <b-col>
-                                <a @click="startQuizFunc()">
-                                    <startbtn></startbtn>
-                                </a>
+                                  <button @click="startQuizFunc()" class="start start1">START</button>
+
+
                             </b-col>
                         </b-row>
                     </div>
@@ -318,7 +318,6 @@
 
 <script>
 import Logo from "./icons/Logo.vue";
-import startbtn from "./icons/startbtn.vue";
 import book from "./book/book.vue";
 import bookmark from "./book/bookmark.vue";
 import mark1 from "./book/tag/1b.vue";
@@ -345,7 +344,6 @@ import mark10w from "./book/tag/10w.vue";
 export default {
     components: {
         
-        startbtn,
         book,
         Logo,
         bookmark,
@@ -1069,7 +1067,7 @@ export default {
 </script>
 
 <style>
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1700px) {
     .bookbg {
         display: none;
     }
@@ -1084,7 +1082,9 @@ export default {
  .viewport{
      pointer-events: none;
 }
-
+.card-body {
+  font-family: "Sarabun", sans-serif;
+}
 .bookbg {
     position: absolute;
     height: auto;
@@ -1186,4 +1186,24 @@ export default {
   box-shadow: 0 0 11px #FF6317; 
   background: #FF6317;
 } */
+
+
+
+
+.start1 {
+  background: linear-gradient(to bottom, #ffa927 0%, #ff6400 100%);
+  color: white; 
+  border: none;
+                    font-size: 30px;
+
+}
+
+.start1:hover {
+  background: linear-gradient(to bottom, #2e68a8 0%, #234277 100%);
+  color: white;
+    border: none;
+  font-size: 30px;
+
+
+}
 </style>
