@@ -57,7 +57,7 @@
               <div
                 class="col-sm text-center font-kanit"
                 :key="index"
-                v-for="(option, index) in questionsRan.length - 2"
+                v-for="(option, index) in questionsRan.length - 12"
               >
                 <div v-if="index < currentQuestion">
                   <div v-bind:style="styleObject">
@@ -776,7 +776,7 @@ export default {
       if (isCorrect) {
         this.score = this.score + 1;
       }
-      if (nextQuestion < this.questions.length - 2) {
+      if (nextQuestion < this.questions.length - 12) {
         this.currentQuestion = nextQuestion;
         // this.$store.state.questionAttended = this.currentQuestion;
         // localStorage.setItem('qattended', this.currentQuestion)

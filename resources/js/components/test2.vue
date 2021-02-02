@@ -1007,7 +1007,7 @@ export default {
             var q = this.books;
       var quest1 = q.slice();
       var rnd;
-            console.log(quest1);
+            // console.log(quest1);
             var rnd;
             while (this.books.length) {
                 rnd = Math.floor(Math.random() * this.books.length);
@@ -1054,7 +1054,7 @@ export default {
                         this.currentQuestion = nextQuestion;
                     } else {
                    this.showScore = true;
-                                    console.log(this.showScore);
+                                    // console.log(this.showScore);
 
                     }
                 }, 1000);
@@ -1114,7 +1114,7 @@ export default {
     top: 45%;
     left: 59%;
     width: 340px;
-    font-size: 22px;
+    font-size: 21px;
 }
 .btnbook2 {
     position: absolute;
@@ -1123,7 +1123,7 @@ export default {
     top: 67%;
     left: 78%;
     width: 340px;
-    font-size: 22px;
+    font-size: 21px;
 }
 
 .btnbook3 {
@@ -1133,7 +1133,7 @@ export default {
     top: 46%;
     left: 80%;
     width: 340px;
-    font-size: 22px;
+    font-size: 21px;
 }
 .btnbook4 {
     position: absolute;
@@ -1203,7 +1203,6 @@ export default {
   color: white;
     border: none;
   font-size: 30px;
-
 
 }
 </style>
